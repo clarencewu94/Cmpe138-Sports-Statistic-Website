@@ -34,6 +34,9 @@ def football():
 def soccer():
 	return render_template("soccer.html")
 
+@app.route("/tennis")
+def tennis():
+	return render_template("tennis.html")
 
 if __name__ == "__main__":
 	app.run(debug=True)

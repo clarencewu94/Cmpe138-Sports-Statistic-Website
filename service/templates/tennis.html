@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang = "en">
+<title>Group Project</title>
+<link rel="stylesheet" type ="text/css" href="{{ url_for('static', filename = 'style.css')}}">
+
+<body style="background-color:antiquewhite;">
+
+<h1>Basketball Session</h1>
+
+
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: goldenrod;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #9EB9D4;
+}
+
+div {
+    border-radius: 5px;
+    background-color: seashell;
+    padding: 20px;
+}
+</style>
+<body>
+
+<center><h2>Enter your tennis statistics here</h2>
+</center>
+
+<div>
+  <form action="/">
+    <label for="Winners">Winners</label>
+    <input type="text" id="Winners" name="Winners" placeholder="Winners">
+
+    <label for="Double Faults">Double Faults</label>
+    <input type="text" id="Double Faults" name="Double Faults" placeholder="DFs">
+
+    <label for="Aces">Aces</label>
+    <input type="text" id="Aces" name="Aces" placeholder="Aces">
+
+    <label for="Serves">Serves (Made-Attempted)</label>
+    <input type="text" id="Serves" name="Serves" placeholder="Made-Attempted">
+
+    <label for="Net Faults">Net Faults</label>
+    <input type="text" id="Net Faults" name="Net Faults" placeholder="NFs">
+
+    <input type="submit" value="Input">
+    </form>
+
+
+</div>
+
+</body>
+</body>
+</html>
