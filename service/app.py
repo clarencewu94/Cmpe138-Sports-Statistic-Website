@@ -30,6 +30,10 @@ def basketball():
 def football():
 	return render_template("football.html")
 
+@app.route("/soccer")
+def soccer():
+	return render_template("soccer.html")
+
 
 if __name__ == "__main__":
 	app.run(debug=True)
