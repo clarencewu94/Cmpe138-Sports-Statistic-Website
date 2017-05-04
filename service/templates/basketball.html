@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang = "en">
+<title>Group Project</title>
+<link rel="stylesheet" type ="text/css" href="{{ url_for('static', filename = 'style.css')}}">
+
+<body style="background-color:antiquewhite;">
+
+<h1>Basketball Session</h1>
+
+
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: goldenrod;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #9EB9D4;
+}
+
+div {
+    border-radius: 5px;
+    background-color: seashell;
+    padding: 20px;
+}
+</style>
+<body>
+
+<center><h2>Enter your basketball statistics here</h2>
+</center>
+
+<div>
+  <form action="/">
+    <label for="FieldGoal">Field Goals (Made-Attempted)</label>
+    <input type="text" id="FieldGoal" name="FieldGoal" placeholder="FG">
+
+    <label for="ThreePoint">3 Pointers (Made-Attempted)</label>
+    <input type="text" id="ThreePoint" name="ThreePoint" placeholder="3PT">
+
+    <label for="FreeThrow">Free Throws (Made-Attempted)</label>
+    <input type="text" id="FhreeThrow" name="FhreeThrow" placeholder="FT">
+
+    <label for="Rebounds">Rebounds</label>
+    <input type="text" id="Rebounds" name="Rebounds" placeholder="REB">
+
+    <label for="Assists">Assists</label>
+    <input type="text" id="Assists" name="Assists" placeholder="AST">
+
+    <label for="Steals">Steals</label>
+    <input type="text" id="Steals" name="Steals" placeholder="STL">
+
+    <label for="Blocks">Blocks</label>
+    <input type="text" id="Blocks" name="Blocks" placeholder="BLK">
+
+    <label for="Turnovers">Turnovers</label>
+    <input type="text" id="Turnovers" name="Turnovers" placeholder="TO">
+
+    <label for="Fouls">Personal Fouls</label>
+    <input type="text" id="Fouls" name="Fouls" placeholder="PF">
+
+    <input type="submit" value="Input">
+    </form>
+
+
+</div>
+
+</body>
+</body>
+</html>

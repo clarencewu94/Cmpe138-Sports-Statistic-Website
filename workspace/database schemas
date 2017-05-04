@@ -1,0 +1,55 @@
+Database 
+
+CREATE TABLE User(
+user_id INT PRIMARY KEY,
+user_name TEXT);
+
+CREATE TABLE Game(
+game_id INT PRIMARY KEY,
+game_name TEXT
+);
+
+CREATE TABLE Game_Type(
+run_id INT PRIMARY KEY,
+type TEXT
+);
+
+CREATE TABLE Stats(
+s_id INT PRIMARY KEY,
+date Text,
+Str1 Text,
+Str2 Text
+);
+
+CREATE TABLE Stat_name(
+st_id INT PRIMARY KEY,
+type TEXT,
+str_name TEXT
+);
+
+
+//relationship tables
+
+CREATE TABLE has(
+game_id int,
+s_id int,
+PRIMARY KEY (game_id, s_id),
+FOREIGN KEY (game_id) REFERENCES game
+    ON DELETE CASCADE,
+FOREIGN KEY (s_id) REFERENCES stats
+    ON DELETE CASCADE
+);
+
+CREATE TABLE g_type(
+run_id int,
+type string,
+game_id int,
+FOREIGN KEY (game_id) REFERENCES game
+);
+
+CREATE TABLE Users(
+user_id int,
+user_name Text,
+game_id int,
+FOREIGN KEY (game_id) REFERENCES game
+);
