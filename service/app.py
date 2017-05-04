@@ -26,6 +26,17 @@ def sessionhub():
 def basketball():
 	return render_template("basketball.html")
 
+@app.route("/football")
+def football():
+	return render_template("football.html")
+
+@app.route("/soccer")
+def soccer():
+	return render_template("soccer.html")
+
+@app.route("/tennis")
+def tennis():
+	return render_template("tennis.html")
 
 if __name__ == "__main__":
 	app.run(debug=True)
