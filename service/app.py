@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, flash, url_for, session, request, abort
 import sqlite3
+from bball import Basketball
 
 
 app = Flask(__name__)
@@ -22,9 +23,47 @@ def signup():
 def sessionhub():
 	return render_template("SessionHub.html")
 
-@app.route("/basketball")
+@app.route('/basketball', methods=['GET', 'POST'])
 def basketball():
-	return render_template("basketball.html")
+    #Basketball
+    Field_Goal = ""
+    Three_Point = ""
+    Free_Throws = ""
+    Rebounds = ""
+    Assists = ""
+    Steals = ""
+    Blocks = ""
+    Turnovers =""
+    Personal_Fouls = ""
+
+    db = sqlite.connect('Stats.db')
+     cursor = db.cursor()
+    cursor.execute('SELECT * FROM Basketball')
+    if request.method == "POST"
+        add_db = sqlite3.connect('Stats.db')
+        add_cursor = add.db.cursor()
+        #Basketball
+        Field_Goal = request.form['Field_Goal']
+        Three_Point = request.form['Three_Point']
+        Free_Throws = request.form['Free_Throws']
+        Rebounds = request.form['Rebounds']
+        Assists = request.form['Assists']
+        Steals = request.form['Steals']
+        Blocks = request.form['Blocks']
+        Turnovers = request.form['Turnovers']
+        Personal_Fouls = request.form['Personal_Fouls']
+      
+        add_cursor.execute('''INSERT INTO Basketball(  
+            #Basketball
+            Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls,
+          
+                Values(?,?,?,?,?,?,?,?,?)''', (  #Basketball
+            Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls ))
+        add_db.commit()
+        success = "Successfully added to database"
+        return render_template('Results.html', success=success)
+    return render_template('Results.html')
+
 
 @app.route("/football")
 def football():
