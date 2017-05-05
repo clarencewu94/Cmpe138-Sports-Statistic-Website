@@ -1,0 +1,123 @@
+Database 
+//
+CREATE TABLE User(
+user_id INT PRIMARY KEY,
+user_name TEXT);
+CREATE TABLE Game(
+game_id INT PRIMARY KEY,
+game_name TEXT
+);
+
+CREATE TABLE Game_Type(
+run_id INT PRIMARY KEY,
+type TEXT
+);
+
+CREATE TABLE Stats(
+s_id INT PRIMARY KEY,
+date Text,
+Str1 Text,
+Str2 Text
+);
+
+CREATE TABLE Stat_name(
+st_id INT PRIMARY KEY,
+type TEXT,
+str_name TEXT
+
+
+CREATE TABLE Basketball(
+FG Text, 
+ThreePT Text,
+REB INT,
+AST INT,
+STL INT,
+TimeOut INT,
+PF INT
+);
+
+CREATE TABLE Soccer(
+Shots Text,
+Saves Text,
+Offsides INT,
+Fouls INT,
+Assists INT,
+YC INT,
+RC INT
+);
+
+CREATE TABLE FootballOffense(
+CMP Text,
+YDS INT,
+TD INT,
+INTS INT,
+FG Text,
+XP INT
+);
+
+CREATE TABLE Golf(
+FirstHole INT,
+SecondHole INT,
+ThirdHole INT,
+FourthHole INT,
+FifthHole INT,
+SixthHole INT,
+SeventhHole INT,
+EighthHole INT,
+NinthHole INT,
+TenthHole INT,
+EleventhHole INT,
+TwelthHole INT,
+ThirteenthHole INT,
+FourteenthHole INT,
+FifteenthHole INT,
+SixteenthHole INT,
+SeventeenthHole INT,
+EighteenthHole INT
+);
+
+CREATE TABLE FootballDefense(
+TKL INT,
+FMB INT,
+SK INT,
+INTs INT
+);
+
+CREATE TABLE Hockey(
+Goals text,
+DBS int,
+Off_Target int,
+Goals_Stopped text
+);
+
+CREATE TABLE Tennis(
+Winners int,
+Doulbe_Faults int,
+Aces int,
+Serves text,
+Net_Faults int
+);
+
+//RelationShip Tables
+
+CREATE TABLE has(
+game_id int,
+s_id int,
+PRIMARY KEY (game_id, s_id),
+FOREIGN KEY (game_id) REFERENCES game
+    ON DELETE CASCADE,
+FOREIGN KEY (s_id) REFERENCES stats
+    ON DELETE CASCADE
+);
+CREATE TABLE g_type(
+run_id int,
+type string,
+game_id int,
+FOREIGN KEY (game_id) REFERENCES game
+);
+CREATE TABLE Users(
+user_id int,
+user_name Text,
+game_id int,
+FOREIGN KEY (game_id) REFERENCES game
+);
