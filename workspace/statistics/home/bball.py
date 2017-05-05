@@ -20,23 +20,23 @@ class Basketball:
     def get_TPT(self):
         return self.TPT
 
-    def self.FT(self):
+    def get_FT(self):
         return self.FT
 
-    def self.REB(self):
+    def get_REB(self):
         return self.REB
 
-    def self.AST(self):
+    def get_AST(self):
         return self.AST
 
-    def self.STL(self):
+    def get_STL(self):
         return self.STL
 
-    def self.BLK(self):
+    def get_BLK(self):
         return self.BLK
 
-    def self.TO(self):
+    def get_TO(self):
         return self.TO
 
-    def self.pF(self):
+    def get_PF(self):
         return self.PF
