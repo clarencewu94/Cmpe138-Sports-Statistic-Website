@@ -46,5 +46,13 @@ def soccer():
 def tennis():
 	return render_template("tennis.html")
 
+@app.route("/golf")
+def golf():
+	return render_template("golf.html")
+
+@app.route("/hockey")
+def hockey():
+	return render_template("hockey.html")
+
 if __name__ == "__main__":
 	app.run(debug=True)
