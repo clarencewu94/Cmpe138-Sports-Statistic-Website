@@ -38,5 +38,5 @@ class Basketball:
     def self.TO(self):
         return self.TO
 
-    def self.pf(self):
+    def self.pF(self):
         return self.PF

@@ -149,8 +149,8 @@ def add():
                return render_template('SessionHub/SessionHub.html', success=success)
     return render_template('SessionHub/SessionHub.html')
 '''
-@app.route('/add', methods=['GET', 'POST'])
-def add():
+@app.route('/basketball', methods=['GET', 'POST'])
+def basketball():
     #Basketball
     Field_Goal = ""
     Three_Point = ""
@@ -187,8 +187,8 @@ def add():
             Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls ))
             add_db.commit()
             success = "Successfully added to database"
-               return render_template('SessionHub/SessionHub.html', success=success)
-    return render_template('SessionHub/SessionHub.html')
+               return render_template('results/Results.html', success=success)
+    return render_template('results/Results.html')
 
        
        
