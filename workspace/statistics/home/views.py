@@ -163,7 +163,7 @@ def add():
     Personal_Fouls = ""
 
     db = sqlite.connect('Stats.db')
-     cursor = db.cursor()
+    cursor = db.cursor()
     cursor.execute('SELECT * FROM Stats ORDER BY Stat_name DESC LIMIT 1')
     if request.method == "POST"
         add_db = sqlite3.connect('Stats.db')
