@@ -37,7 +37,7 @@ def basketball():
     Personal_Fouls = ""
 
     db = sqlite.connect('Stats.db')
-     cursor = db.cursor()
+    	cursor = db.cursor()
     cursor.execute('SELECT * FROM Basketball')
     if request.method == "POST"
         add_db = sqlite3.connect('Stats.db')

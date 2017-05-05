@@ -46,7 +46,14 @@ div {
 </center>
 
 <div>
-  <form action="/">
+
+
+<div class="container">
+
+<form id="contact" action="{{url_for('basketball')}}" method="POST">
+
+
+
     <label for="FieldGoal">Field Goals (Made-Attempted)</label>
     <input type="text" id="Field_Goal" name="FieldGoal" placeholder="FG">
 
@@ -75,9 +82,9 @@ div {
     <input type="text" id="Personal_Fouls" name="Fouls" placeholder="PF">
 
     <input type="submit" value="Input">
-    </form>
 
-
+</form>
+</div>
 </div>
 
 </body>
