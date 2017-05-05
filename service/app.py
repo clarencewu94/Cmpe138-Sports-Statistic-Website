@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, flash, url_for, session, request, abort
 import sqlite3
+from bball import Basketball
 
 
 app = Flask(__name__)
@@ -37,7 +38,7 @@ def basketball():
 
     db = sqlite.connect('Stats.db')
      cursor = db.cursor()
-    cursor.execute('SELECT * FROM Stats ORDER BY Stat_name DESC LIMIT 1')
+    cursor.execute('SELECT * FROM Basketball')
     if request.method == "POST"
         add_db = sqlite3.connect('Stats.db')
         add_cursor = add.db.cursor()
@@ -52,15 +53,15 @@ def basketball():
         Turnovers = request.form['Turnovers']
         Personal_Fouls = request.form['Personal_Fouls']
       
-        db_cursor.execute('''INSERT INTO Stats(  
+        add_cursor.execute('''INSERT INTO Basketball(  
             #Basketball
             Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls,
           
                 Values(?,?,?,?,?,?,?,?,?)''', (  #Basketball
             Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls ))
-            add_db.commit()
-            success = "Successfully added to database"
-               return render_template('Results.html', success=success)
+        add_db.commit()
+        success = "Successfully added to database"
+        return render_template('Results.html', success=success)
     return render_template('Results.html')
 
 
