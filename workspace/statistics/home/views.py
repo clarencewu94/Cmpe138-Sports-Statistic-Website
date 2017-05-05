@@ -31,7 +31,7 @@ def session():
     if request.method == 'POST'
         return redirect(url_for('SessionHub'))
 
-@app.route('/add', methods=['GET', 'POST'])
+'''@app.route('/add', methods=['GET', 'POST'])
 def add():
     #Basketball
     Field_Goal = ""
@@ -148,6 +148,48 @@ def add():
             success = "Successfully added to database"
                return render_template('SessionHub/SessionHub.html', success=success)
     return render_template('SessionHub/SessionHub.html')
+'''
+@app.route('/add', methods=['GET', 'POST'])
+def add():
+    #Basketball
+    Field_Goal = ""
+    Three_Point = ""
+    Free_Throws = ""
+    Rebounds = ""
+    Assists = ""
+    Steals = ""
+    Blocks = ""
+    Turnovers =""
+    Personal_Fouls = ""
 
+    db = sqlite.connect('Stats.db')
+     cursor = db.cursor()
+    cursor.execute('SELECT * FROM Stats ORDER BY Stat_name DESC LIMIT 1')
+    if request.method == "POST"
+        add_db = sqlite3.connect('Stats.db')
+        add_cursor = add.db.cursor()
+        #Basketball
+        Field_Goal = request.form['Field_Goal']
+        Three_Point = request.form['Three_Point']
+        Free_Throws = request.form['Free_Throws']
+        Rebounds = request.form['Rebounds']
+        Assists = request.form['Assists']
+        Steals = request.form['Steals']
+        Blocks = request.form['Blocks']
+        Turnovers = request.form['Turnovers']
+        Personal_Fouls = request.form['Personal_Fouls']
+      
+        db_cursor.execute('''INSERT INTO Stats(  
+            #Basketball
+            Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls,
+          
+                Values(?,?,?,?,?,?,?,?,?)''', (  #Basketball
+            Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls ))
+            add_db.commit()
+            success = "Successfully added to database"
+               return render_template('SessionHub/SessionHub.html', success=success)
+    return render_template('SessionHub/SessionHub.html')
+
+       
        
 
