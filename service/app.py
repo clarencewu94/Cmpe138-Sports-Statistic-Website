@@ -54,5 +54,9 @@ def golf():
 def hockey():
 	return render_template("hockey.html")
 
+@app.route("/results")
+def results():
+	return render_template("Results.html")
+
 if __name__ == "__main__":
 	app.run(debug=True)
