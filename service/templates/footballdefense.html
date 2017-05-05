@@ -3,9 +3,9 @@
 <title>Group Project</title>
 <link rel="stylesheet" type ="text/css" href="{{ url_for('static', filename = 'style.css')}}">
 
-<body style="background-color:powderblue;">
+<body style="background-color:antiquewhite;">
 
-<h1>Sports Selection</h1>
+<h1>Football Defense Session</h1>
 
 
 <style>
@@ -21,7 +21,7 @@ input[type=text], select {
 
 input[type=submit] {
     width: 100%;
-    background-color: #00FF7F;
+    background-color: goldenrod;
     color: black;
     padding: 14px 20px;
     margin: 8px 0;
@@ -36,26 +36,33 @@ input[type=submit]:hover {
 
 div {
     border-radius: 5px;
-    background-color: #87CEEB;
+    background-color: seashell;
     padding: 20px;
 }
 </style>
 <body>
 
-<center><h2>Football Sub-Selection Screen</h2>
+<center><h2>Enter your defensive football statistics here</h2>
 </center>
 
 <div>
+  <form action="/">
+    <label for="TKL">Tackles</label>
+    <input type="text" id="TKL" name="TKL" placeholder="TKL">
 
-<form action="/footballoffense">
-    <input type="submit" value="Offense">
-</form>
+    <label for="FMB">Fumbles</label>
+    <input type="text" id="FMB" name="FMB" placeholder="FMB">
 
-<form action="/footballdefense">
-    <input type="submit" value="Defense">
-</form>
+    <label for="SK">Sacks</label>
+    <input type="text" id="SK" name="SK" placeholder="SK">
 
-  </form>
+    <label for="INTs">Interceptions</label>
+    <input type="text" id="INTs" name="INTs" placeholder="INTs">
+
+    <input type="submit" value="Input">
+    </form>
+
+
 </div>
 
 </body>

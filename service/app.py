@@ -30,6 +30,14 @@ def basketball():
 def football():
 	return render_template("football.html")
 
+@app.route("/footballoffense")
+def footballoffense():
+	return render_template("footballoffense.html")
+
+@app.route("/footballdefense")
+def footballdefense():
+	return render_template("footballdefense.html")
+
 @app.route("/soccer")
 def soccer():
 	return render_template("soccer.html")
