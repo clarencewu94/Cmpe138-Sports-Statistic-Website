@@ -123,7 +123,7 @@ def add():
         Shots_made = request.form['Shots_made']
         Goals_Saved = request.form['Goals_Saved']
         #For Stats
-        db_cursor.execute('''INSERT INTO Stats(  
+        db_cursor.execute(INSERT INTO Stats(  
             #Basketball
             Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls,
             #Football
@@ -134,7 +134,7 @@ def add():
             Shots, Assists,Goals,Save,Fowls,YellowCards,RedCards 
             #Hockey
             Shots_Attempted,BlockedbyDefence, Shots_Off, Pipes,Shots_made,Goals_Saved) 
-                Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''', (  #Basketball
+                Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?), (  #Basketball
             Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls,
             #Football
             Completion, Yards, Yards_Per_Attempt, Touchdown,Interception
@@ -149,6 +149,61 @@ def add():
                return render_template('SessionHub/SessionHub.html', success=success)
     return render_template('SessionHub/SessionHub.html')
 '''
+from bball import Basketball
+
+
+app = Flask(__name__)
+
+# @ is a decorator which is a way to wrap a function and modifying its behavior
+@app.route("/")
+def main():
+        return render_template("frontpage.html")
+
+
+@app.route("/mainmenu")
+def mainmenu():
+    return render_template("mainmenu.html")
+
+@app.route("/signup")
+def signup():
+    return render_template("signin.html")
+
+@app.route("/session")
+def sessionhub():
+    return render_template("SessionHub.html")
+
+@app.route("/football")
+def football():
+    return render_template("football.html")
+
+@app.route("/footballoffense")
+def footballoffense():
+    return render_template("footballoffense.html")
+
+@app.route("/footballdefense")
+def footballdefense():
+    return render_template("footballdefense.html")
+
+@app.route("/soccer")
+def soccer():
+    return render_template("soccer.html")
+
+@app.route("/tennis")
+def tennis():
+    return render_template("tennis.html")
+
+@app.route("/golf")
+def golf():
+    return render_template("golf.html")
+
+@app.route("/hockey")
+def hockey():
+    return render_template("hockey.html")
+
+@app.route("/results")
+def results():
+    return render_template("Results.html")
+
 @app.route('/basketball', methods=['GET', 'POST'])
 def basketball():
     #Basketball
