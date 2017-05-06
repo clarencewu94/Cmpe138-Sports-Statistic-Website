@@ -38,7 +38,7 @@ def basketball():
 
     db = sqlite3.connect('sports.db')
     cursor = db.cursor()
-    cursor.execute('SELECT * FROM Basketball')
+    cursor.execute('SELECT * FROM basketball')
     if request.method == "POST":
         basketball_db = sqlite3.connect('sports.db')
         add_cursor = basketball_db.cursor()
@@ -53,8 +53,8 @@ def basketball():
         Turnovers = request.form['Turnovers']
         Personal_Fouls = request.form['Personal_Fouls']
       
-        add_cursor.execute('''INSERT INTO Basketball(  
-            Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls)
+        add_cursor.execute('''INSERT INTO basketball(  
+            field_goals, three_pointers, free_throws, rebounds, assists, steals, blocks, turnovers, personal_fouls)
             Values(?,?,?,?,?,?,?,?,?)''', (  #Basketball
             Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls ))
         basketball_db.commit()
@@ -77,7 +77,7 @@ def footballoffense():
 
     db = sqlite3.connect('sports.db')
     cursor = db.cursor()
-    cursor.execute('SELECT * FROM FootballOffense')
+    cursor.execute('SELECT * FROM foffense')
     if request.method == "POST":
         footballoffense_db = sqlite3.connect('sports.db')
         add_cursor = footballoffense_db.cursor()
@@ -89,8 +89,8 @@ def footballoffense():
         Field_Goal = request.form['Field_Goal']
         Extra_Points = request.form['Extra_Points']
         
-        add_cursor.execute('''INSERT INTO FootballOffense(  
-            Completions, Yards, Touchdown, Interception, Field_Goal, Extra_Points)
+        add_cursor.execute('''INSERT INTO foffense(  
+            completions, yards, touchdown, interception, field_goals, extra_points)
                 Values(?,?,?,?,?,?)''', (  
             Completions, Yards, Touchdown, Interception, Field_Goal, Extra_Points ))
         footballoffense_db.commit()
@@ -107,7 +107,7 @@ def footballdefense():
 
     db = sqlite3.connect('sports.db')
     cursor = db.cursor()
-    cursor.execute('SELECT * FROM Footballdefense')
+    cursor.execute('SELECT * FROM fdefense')
     if request.method == "POST":
         footballdefense_db = sqlite3.connect('sports.db')
         add_cursor = footballdefense_db.cursor()
@@ -117,8 +117,8 @@ def footballdefense():
         Sacks = request.form['Sacks']
         Interception = request.form['Interception'] 
         
-        add_cursor.execute('''INSERT INTO Footballdefense(  
-            Tackies, Fumbles, Sacks, Interception)
+        add_cursor.execute('''INSERT INTO fdefense(  
+            tackles, fumbles, sacks, interception)
                 Values(?,?,?,?)''', (  
             Tackies, Fumbles, Sacks, Interception ))
         footballdefense_db.commit()
@@ -152,7 +152,7 @@ def soccer():
         Red_Cards = request.form['Red_Cards']
       
         add_cursor.execute('''INSERT INTO soccer(  
-            Shots, Saves, Offside, Fouls, Assists, Yellow_Cards, Red_Cards)
+            shots, saves, offside, fouls, assists, yellow_cards, red_cards)
             Values(?,?,?,?,?,?,?)''', (  
             Shots, Saves, Offside, Fouls, Assists, Yellow_Cards, Red_Cards ))
         soccer_db.commit()
@@ -171,7 +171,7 @@ def tennis():
     
     db = sqlite3.connect('sports.db')
     cursor = db.cursor()
-    cursor.execute('SELECT * FROM soccer')
+    cursor.execute('SELECT * FROM tennis')
     if request.method == "POST":
         tennis_db = sqlite3.connect('sports.db')
         add_cursor = tennis_db.cursor()
