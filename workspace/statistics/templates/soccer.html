@@ -45,6 +45,13 @@ div {
 <center><h2>Enter your soccer statistics here</h2>
 </center>
 
+<form id="contact" action="{{url_for('soccer')}}" method="POST">
+     {% if success %}
+   <div class="alert alert-success">
+          <strong>{{success}}</strong> 
+    </div>
+    {%endif %}
+    <fieldset>
 <div>
   <form action="/">
     <label for="Shots">Shots (Made-Attempted)</label>
@@ -63,16 +70,17 @@ div {
     <input type="text" id="Assists" name="Assists" placeholder="AST">
 
     <label for="Yellow Cards">Yellow Cards</label>
-    <input type="text" id="Yellow_Cards" name="Yellow Cards" placeholder="Yellow Cards">
+    <input type="text" id="Yellow_Cards" name="Yellow_Cards" placeholder="Yellow Cards">
 
     <label for="Red Cards">Red Cards</label>
-    <input type="text" id="Red_Cards" name="Red Cards" placeholder="Red Cards">
+    <input type="text" id="Red_Cards" name="Red_Cards" placeholder="Red Cards">
 
     <input type="submit" value="Input">
-    </form>
-
-
+    </fieldset>
+  </form>
 </div>
+</div>
+
 
 </body>
 </body>

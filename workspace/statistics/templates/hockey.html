@@ -45,24 +45,31 @@ div {
 <center><h2>Enter your hockey statistics here</h2>
 </center>
 
+<form id="contact" action="{{url_for('hockey')}}" method="POST">
+     {% if success %}
+   <div class="alert alert-success">
+          <strong>{{success}}</strong> 
+    </div>
+    {%endif %}
+    <fieldset>
 <div>
   <form action="/">
     <label for="Goals">Goals (Made-Attempted)</label>
     <input type="text" id="Goals" name="Goals" placeholder="Made-Attempted">
 
     <label for="DBS">Defence Blocked Shots</label>
-    <input type="text" id="DBS" name="DBS" placeholder="DBS">
+    <input type="text" id="Defence_Blocked_Shots" name="Defence_Blocked_Shots" placeholder="DBS">
 
     <label for="Off_Target">Off-Target Shots</label>
-    <input type="text" id="Off_Target" name="Off_Target" placeholder="Off-Target Shots">
+    <input type="text" id="Off_Target_Shots" name="Off_Target_Shots" placeholder="Off-Target Shots">
 
     <label for="Stopped">Goals Stopped (Saved-Failed)</label>
-    <input type="text" id="Stopped" name="Stopped" placeholder="Saved-Failed">
+    <input type="text" id="Goals_Stopped" name="Goals_Stopped" placeholder="Saved-Failed">
 
     <input type="submit" value="Input">
-    </form>
-
-
+    </fieldset>
+  </form>
+</div>
 </div>
 
 </body>
