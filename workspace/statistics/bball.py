@@ -98,7 +98,7 @@ class tennis:
         self.double_faults = double_faults 
         self.serves = serves
         self.net_faults = net_faults
-        self.INTs = 
+        self.INTs = INTs
         self.FG = FG 
         self.XP = XP
 
