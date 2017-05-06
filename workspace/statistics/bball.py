@@ -98,9 +98,15 @@ class tennis:
         self.double_faults = double_faults 
         self.serves = serves
         self.net_faults = net_faults
+<<<<<<< HEAD
         self.aces = aces
         self.serves = serves
         self.net_faults = net_faults
+=======
+        self.INTs = INTs
+        self.FG = FG 
+        self.XP = XP
+>>>>>>> 6c8773819b63526d44d2cdebac785577787f685c
 
     def get_double_faults(self):
         return self.double_faults
