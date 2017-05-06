@@ -93,32 +93,24 @@ class soccer:
         return self.red_cards
 
 class tennis:
-    def __init__(self, double_faults, aces, serves, net_faults,):
+    def init(self, double_faults, aces, serves, net_faults,):
 
         self.double_faults = double_faults 
         self.serves = serves
         self.net_faults = net_faults
-<<<<<<< HEAD
         self.aces = aces
-        self.serves = serves
-        self.net_faults = net_faults
-=======
-        self.INTs = INTs
-        self.FG = FG 
-        self.XP = XP
->>>>>>> 6c8773819b63526d44d2cdebac785577787f685c
 
     def get_double_faults(self):
         return self.double_faults
-    
-    def get_aces(self):
-        return self.aces 
-    
+
     def get_serves(self):
         return self.serves
-    
+
     def get_net_faults(self):
         return self.net_faults
+
+    def get_aces(self):
+        return self.aces
 
 class golf:
     def __init__(self, course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth):
