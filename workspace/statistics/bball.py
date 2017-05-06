@@ -110,7 +110,7 @@ class tennis:
         return self.net_faults
 
     def get_aces(self):
-        return self.aces
+        return self.aces 
 
 class golf:
     def __init__(self, course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth):

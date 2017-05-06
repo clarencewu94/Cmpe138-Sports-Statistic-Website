@@ -45,24 +45,33 @@ div {
 <center><h2>Enter your defensive football statistics here</h2>
 </center>
 
+
+  <form id="contact" action="{{url_for('footballdefense')}}" method="POST">
+     {% if success %}
+   <div class="alert alert-success">
+          <strong>{{success}}</strong> 
+    </div>
+    {%endif %}
+    <fieldset>
+
 <div>
   <form action="/">
     <label for="TKL">Tackles</label>
-    <input type="text" id="TKL" name="TKL" placeholder="TKL">
+    <input type="text" id="TKL" name="Tackles" placeholder="TKL">
 
     <label for="FMB">Fumbles</label>
-    <input type="text" id="FMB" name="FMB" placeholder="FMB">
+    <input type="text" id="FMB" name="Fumbles" placeholder="FMB">
 
     <label for="SK">Sacks</label>
-    <input type="text" id="SK" name="SK" placeholder="SK">
+    <input type="text" id="SK" name="Sacks" placeholder="SK">
 
     <label for="INTs">Interceptions</label>
-    <input type="text" id="INTs" name="INTs" placeholder="INTs">
+    <input type="text" id="INTs" name="Interceptions" placeholder="INTs">
 
     <input type="submit" value="Input">
-    </form>
-
-
+    </fieldset>
+  </form>
+</div>
 </div>
 
 </body>

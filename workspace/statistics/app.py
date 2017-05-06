@@ -5,6 +5,9 @@ from bball import Basketball
 
 app = Flask(__name__)
 
+db = sqlite3.connect('sports.db', check_same_thread=False)
+cursor = db.cursor()
+
 # @ is a decorator which is a way to wrap a function and modifying its behavior
 @app.route("/")
 def main():
@@ -36,11 +39,11 @@ def basketball():
     Turnovers =""
     Personal_Fouls = ""
 
-    db = sqlite3.connect('sports.db')
-    cursor = db.cursor()
     cursor.execute('SELECT * FROM basketball')
     if request.method == "POST":
-        basketball_db = sqlite3.connect('sports.db')
+        cursor.execute("PRAGMA busy_timeout = 10000")
+
+        basketball_db = sqlite3.connect('sports.db',check_same_thread=False)
         add_cursor = basketball_db.cursor()
         #Basketball
         Field_Goal = request.form['Field_Goal']
@@ -59,7 +62,10 @@ def basketball():
             Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls ))
         basketball_db.commit()
         basketball_db.close()
+<<<<<<< HEAD
         db.close()
+=======
+>>>>>>> 1153095961376e28cb6b56e49e3703fab528cae7
         success = "Successfully added to database"
         return render_template('basketball.html', success=success)
     return render_template('basketball.html')
@@ -77,11 +83,12 @@ def footballoffense():
     Field_Goal = ""
     Extra_Points = ""
 
-    db = sqlite3.connect('sports.db')
-    cursor = db.cursor()
+ 
     cursor.execute('SELECT * FROM foffense')
     if request.method == "POST":
-        footballoffense_db = sqlite3.connect('sports.db')
+        cursor.execute("PRAGMA busy_timeout = 10000")
+
+        footballoffense_db = sqlite3.connect('sports.db',check_same_thread=False)
         add_cursor = footballoffense_db.cursor()
         #FootballOffense
         Completions = request.form['Completions']
@@ -92,38 +99,42 @@ def footballoffense():
         Extra_Points = request.form['Extra_Points']
         
         add_cursor.execute('''INSERT INTO foffense(  
-            completions, yards, touchdown, interception, field_goals, extra_points)
+            completions, yards, touchdowns, interceptions, field_goals, extra_points)
                 Values(?,?,?,?,?,?)''', (  
             Completions, Yards, Touchdown, Interception, Field_Goal, Extra_Points ))
         footballoffense_db.commit()
+        footballoffense_db.close()
         success = "Successfully added to database"
         return render_template('footballoffense.html', success=success)
     return render_template("footballoffense.html")
 
-@app.route("/footballdefense")
+@app.route("/footballdefense", methods=['GET', 'POST'])
 def footballdefense():
     Tackles = ""
     Fumbles = ""
     Sacks = ""
     Interception = ""
 
-    db = sqlite3.connect('sports.db')
-    cursor = db.cursor()
+   
     cursor.execute('SELECT * FROM fdefense')
     if request.method == "POST":
-        footballdefense_db = sqlite3.connect('sports.db')
+        cursor.execute("PRAGMA busy_timeout = 10000")
+
+        footballdefense_db = sqlite3.connect('sports.db',check_same_thread=False)
         add_cursor = footballdefense_db.cursor()
         #Footballdefense
         Tackles = request.form['Tackles']
         Fumbles = request.form['Fumbles']
         Sacks = request.form['Sacks']
-        Interception = request.form['Interception'] 
+        Interception = request.form['Interceptions'] 
         
         add_cursor.execute('''INSERT INTO fdefense(  
-            tackles, fumbles, sacks, interception)
+            tackles, fumbles, sacks, interceptions)
                 Values(?,?,?,?)''', (  
-            Tackies, Fumbles, Sacks, Interception ))
+            Tackles, Fumbles, Sacks, Interception ))
         footballdefense_db.commit()
+        footballdefense_db.close()
+        
         success = "Successfully added to database"
         return render_template('footballdefense.html', success=success)
     return render_template("footballdefense.html")
@@ -139,11 +150,12 @@ def soccer():
     Yellow_Cards = ""
     Red_Cards = ""
     
-    db = sqlite3.connect('sports.db')
-    cursor = db.cursor()
+   
     cursor.execute('SELECT * FROM soccer')
     if request.method == "POST":
-        soccer_db = sqlite3.connect('sports.db')
+        cursor.execute("PRAGMA busy_timeout = 10000")
+
+        soccer_db = sqlite3.connect('sports.db',check_same_thread=False)
         add_cursor = soccer_db.cursor()
         #Soccer
         Shots = request.form['Shots']
@@ -158,11 +170,12 @@ def soccer():
             Values(?,?,?,?,?,?,?)''', (  
             Shots, Saves, Offside, Fouls, Assists, Yellow_Cards, Red_Cards ))
         soccer_db.commit()
+        soccer_db.close()
         success = "Successfully added to database"
         return render_template('soccer.html', success=success)
     return render_template('soccer.html')
 
-@app.route("/tennis")
+@app.route("/tennis", methods=['GET', 'POST'])
 def tennis():
      #tennis
     winners = ""
@@ -171,29 +184,31 @@ def tennis():
     serves = ""
     net_faults = "" 
     
-    db = sqlite3.connect('sports.db')
-    cursor = db.cursor()
+  
     cursor.execute('SELECT * FROM tennis')
     if request.method == "POST":
-        tennis_db = sqlite3.connect('sports.db')
+        cursor.execute("PRAGMA busy_timeout = 10000")
+
+        tennis_db = sqlite3.connect('sports.db',check_same_thread=False)
         add_cursor = tennis_db.cursor()
         #tennis
-        winners = request.form['winners']
-        double_faults = request.form['double_faults']
-        aces = request.form['aces']
-        serves = request.form['serves']
-        net_faults = request.form['net_faults']
+        winners = request.form['Winners']
+        double_faults = request.form['Double_Faults']
+        aces = request.form['Aces']
+        serves = request.form['Serves']
+        net_faults = request.form['Net_Faults']
       
         add_cursor.execute('''INSERT INTO tennis(  
             winners, double_faults, aces, serves, net_faults)
             Values(?,?,?,?,?)''', (  
            winners, double_faults, aces, serves, net_faults ))
         tennis_db.commit()
+        tennis_db.close()
         success = "Successfully added to database"
         return render_template('tennis.html', success=success)
     return render_template('tennis.html')
 
-@app.route("/golf")
+@app.route("/golf", methods=['GET', 'POST'])
 def golf():
     #golf
     course_name = ""
@@ -209,17 +224,18 @@ def golf():
     eleventh = "" 
     twelfth = "" 
     thirteenth = ""
-    fourtheenth = ""
+    fourteenth = ""
     fifteenth = ""
     sixteenth = ""
     seventeenth = ""
     eighteenth = ""
     
-    db = sqlite3.connect('sports.db')
-    cursor = db.cursor()
+   
     cursor.execute('SELECT * FROM golf')
     if request.method == "POST":
-        golf_db = sqlite3.connect('sports.db')
+        cursor.execute("PRAGMA busy_timeout = 10000")
+
+        golf_db = sqlite3.connect('sports.db',check_same_thread=False)
         add_cursor = golf_db.cursor()
         #golf
         course_name = request.form['course_name']
@@ -236,48 +252,50 @@ def golf():
         eleventh = request.form['eleventh']
         twelfth = request.form['twelfth']
         thirteenth = request.form['thirteenth']
-        fourtheenth = request.form['fourtheenth']
+        fourteenth = request.form['fourteenth']
         fifteenth = request.form['fifteenth']
         sixteenth = request.form['sixteenth']
         seventeenth = request.form['seventeenth']
         eighteenth = request.form['eighteenth']
       
         add_cursor.execute('''INSERT INTO golf(  
-            course_name, first, second, third, fourth. fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth, thirteenth, fourtheenth, fifteenth, sixteenth, seventeenth, eighteenth)
-            Values(?,?,?,?,?)''', (  
-            course_name, first, second, third, fourth. fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth, thirteenth, fourtheenth, fifteenth, sixteenth, seventeenth, eighteenth))
+            course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth)
+            Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''', (  
+            course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth))
 
         golf_db.commit()
+        golf_db.close()
         success = "Successfully added to database"
         return render_template('golf.html', success=success)
     return render_template('golf.html')
 
 
-@app.route("/hockey")
+@app.route("/hockey", methods=['GET', 'POST'])
 def hockey():
     #hockey
-    goals = ""
-    defence_blocked_shots  = ""
-    off_target_shots = ""
-    goals_stopped = ""
+    Goals = ""
+    Defence_Blocked_Shots  = ""
+    Off_Target_Shots = ""
+    Goals_Stopped = ""
     
-    db = sqlite3.connect('sports.db')
-    cursor = db.cursor()
     cursor.execute('SELECT * FROM hockey')
     if request.method == "POST":
-        hockey_db = sqlite3.connect('sports.db')
+        cursor.execute("PRAGMA busy_timeout = 10000")
+
+        hockey_db = sqlite3.connect('sports.db',check_same_thread=False)
         add_cursor = hockey_db.cursor()
         #hockey
-        goals = request.form['goals']
-        defence_blocked_shots = request.form['defence_blocked_shots']
-        off_target_shots = request.form['off_target_shots']
-        goals_stopped = request.form['goals_stopped']
+        Goals = request.form['Goals']
+        Defence_Blocked_Shots = request.form['Defence_Blocked_Shots']
+        Off_Target_Shots = request.form['Off_Target_Shots']
+        Goals_Stopped = request.form['Goals_Stopped']
 
         add_cursor.execute('''INSERT INTO hockey(  
             goals, defence_blocked_shots, off_target_shots, goals_stopped)
             Values(?,?,?,?)''', (  
-            goals, defence_blocked_shots, off_target_shots, goals_stopped))
+            Goals, Defence_Blocked_Shots, Off_Target_Shots, Goals_Stopped))
         hockey_db.commit()
+        hockey_db.close()
         success = "Successfully added to database"
         return render_template('hockey.html', success=success)
     return render_template('hockey.html')
@@ -285,6 +303,7 @@ def hockey():
 @app.route("/results")
 def results():
     return render_template("results.html")
+
 
 if __name__ == "__main__":
 	app.run(debug=True)

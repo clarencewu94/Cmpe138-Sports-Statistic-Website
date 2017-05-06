@@ -45,6 +45,14 @@ div {
 <center><h2>Enter your offensive football statistics here</h2>
 </center>
 
+  <form id="contact" action="{{url_for('footballoffense')}}" method="POST">
+     {% if success %}
+   <div class="alert alert-success">
+          <strong>{{success}}</strong> 
+    </div>
+    {%endif %}
+    <fieldset>
+
 <div>
    <form action="/">
     <label for="Completions">Completions (Completions-Attempted)</label>
@@ -66,9 +74,9 @@ div {
     <input type="text" id="XP" name="Extra_Points" placeholder="XP">
 
     <input type="submit" value="Input">
-    </form>
-
-
+    </fieldset>
+  </form>
+</div>
 </div>
 
 </body>
