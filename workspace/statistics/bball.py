@@ -98,72 +98,126 @@ class tennis:
         self.double_faults = double_faults 
         self.serves = serves
         self.net_faults = net_faults
+<<<<<<< HEAD
+        self.aces = aces
+        self.serves = serves
+        self.net_faults = net_faults
+=======
         self.INTs = INTs
         self.FG = FG 
         self.XP = XP
+>>>>>>> 6c8773819b63526d44d2cdebac785577787f685c
 
-    def get_CMP(self):
-        return self.CMP
+    def get_double_faults(self):
+        return self.double_faults
     
-    def get_YDS(self):
-        return self.YDS 
+    def get_aces(self):
+        return self.aces 
     
-    def get_TD(self):
-        return self.TD
+    def get_serves(self):
+        return self.serves
     
-    def get_INTs(self):
-        return self.INTSs
-    
-    def get_FG(self):
-        return self.FG
+    def get_net_faults(self):
+        return self.net_faults
 
 class golf:
-    def __init__(self,CMP,YDS,TD,INTs,FG,XP):
+    def __init__(self, course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth):
 
-        self.CMP = CMP
-        self.YDS = YDS
-        self.TD = TD
-        self.INTs = INTs
-        self.FG = FG 
-        self.XP = XP
+        self.course_name = course_name
+        self.first = first
+        self.second = second
+        self.third = third
+        self.fourth = fourth
+        self.fifth = fifth
+        self.sixth = sixth
+        self.seventh = seventh
+        self.eighth = eighth
+        self.ninth = ninth
+        self.tenth = tenth
+        self.eleventh = eleventh
+        self.twelfth = twelfth
+        self.thirteenth = thirteenth
+        self.fourteenth = fourteenth
+        self.fifteenth = fifteenth
+        self.sixteenth = sixteenth
+        self.seventeenth = seventeenth
+        self.eighteenth = eighteenth
 
-    def get_CMP(self):
-        return self.CMP
+    def get_course_name(self):
+        return self.course_name
     
-    def get_YDS(self):
-        return self.YDS 
+    def get_first(self):
+        return self.first 
     
-    def get_TD(self):
-        return self.TD
+    def get_second(self):
+        return self.second
     
-    def get_INTs(self):
-        return self.INTSs
+    def get_third(self):
+        return self.third
     
-    def get_FG(self):
-        return self.FG
+    def get_fourth(self):
+        return self.fourth
+
+    def get_fifth(self):
+        return self.fifth
+
+    def get_sixth(self):
+        return self.sixth
+
+    def get_seventh(self):
+        return self.seventh
+
+    def get_eighth(self):
+        return self.eighth
+
+    def get_ninth(self):
+        return self.ninth
+
+    def get_tenth(self):
+        return self.tenth
+
+    def get_eleventh(self):
+        return self.eleventh
+
+    def get_twelfth(self):
+        return self.twelfth
+
+    def get_thirteenth(self):
+        return self.thirteenth
+
+    def get_fourteenth(self):
+        return self.fourteenth
+
+    def get_fiftheenth(self):
+        return self.fifteenth
+
+    def get_sixteenth(self):
+        return self.sixteenth
+
+    def get_seventheeth(self):
+        return self.seventeenth
+
+    def get_eightheenth(self):
+        return self.eighteenth
 
 class hockey:
-    def __init__(self,CMP,YDS,TD,INTs,FG,XP):
+    def __init__(self,goals, defence_blocked_shots, off_target_shots, goals_stopped):
+ 
+        self.goals = goals
+        self.defence_blocked_shots = defence_blocked_shots
+        self.off_target_shots = off_target_shots
+        self.goals_stopped = goals_stopped
 
-        self.CMP = CMP
-        self.YDS = YDS
-        self.TD = TD
-        self.INTs = INTs
-        self.FG = FG 
-        self.XP = XP
-
-    def get_CMP(self):
-        return self.CMP
+    def get_goals(self):
+        return self.goals
     
-    def get_YDS(self):
-        return self.YDS 
+    def get_defence_blocked_shots(self):
+        return self.defence_blocked_shots
     
-    def get_TD(self):
-        return self.TD
+    def get_off_target_shows(self):
+        return self.off_target_shots
     
-    def get_INTs(self):
-        return self.INTSs
+    def get_goals_stopped(self):
+        return self.goals_stopped
     
-    def get_FG(self):
-        return self.FG
-    
+   
