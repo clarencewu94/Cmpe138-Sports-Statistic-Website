@@ -178,6 +178,32 @@ def football():
 
 @app.route("/footballoffense")
 def footballoffense():
+    Completions = ""
+    Yards = ""
+    Touchdown = ""
+    Interception = ""
+    Field_Goal = ""
+    Extra_Points = ""
+
+    db = sqlite.connect('Stats.db')
+    cursor = db.cursor()
+    cursor.execute('SELECT * FROM Stats ORDER BY Stat_name DESC LIMIT 1')
+    if request.method == "POST"
+        add_db = sqlite3.connect('Stats.db')
+        add_cursor = add.db.cursor()
+        Completions = request.form['Completions']
+        Yards = request.form['Yards']
+        Touchdown = request.form['Touchdown']
+        Interception = request.form['Interception'] 
+        Field_Goal = request.form['Field_Goal']
+        Extra_Points = request.form['Extra_Points']
+        db_cursor.execute('''INSERT INTO Stats(  
+            Completions, Yards, Touchdown, Interception, Field_Goal, Extra_Points)
+                Values(?,?,?,?,?,?)''', (  
+            Completions, Yards, Touchdown, Interception, Field_Goal, Extra_Points ))
+            add_db.commit()
+            success = "Successfully added to database"
+               return render_template('footballoffense.html', success=success)
     return render_template("footballoffense.html")
 
 @app.route("/footballdefense")
@@ -217,12 +243,12 @@ def basketball():
     Turnovers =""
     Personal_Fouls = ""
 
-    db = sqlite.connect('Stats.db')
+   db = sqlite3.connect('Stats.db')
     cursor = db.cursor()
-    cursor.execute('SELECT * FROM Stats ORDER BY Stat_name DESC LIMIT 1')
-    if request.method == "POST"
-        add_db = sqlite3.connect('Stats.db')
-        add_cursor = add.db.cursor()
+    cursor.execute('SELECT * FROM Basketball')
+    if request.method == "POST":
+        basketball_db = sqlite3.connect('Stats.db')
+        add_cursor = basketball_db.cursor()
         #Basketball
         Field_Goal = request.form['Field_Goal']
         Three_Point = request.form['Three_Point']
@@ -234,17 +260,14 @@ def basketball():
         Turnovers = request.form['Turnovers']
         Personal_Fouls = request.form['Personal_Fouls']
       
-        db_cursor.execute('''INSERT INTO Stats(  
-            #Basketball
-            Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls,
-          
-                Values(?,?,?,?,?,?,?,?,?)''', (  #Basketball
+        add_cursor.execute('''INSERT INTO Basketball(  
+            Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls)
+            Values(?,?,?,?,?,?,?,?,?)''', (  #Basketball
             Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls ))
-            add_db.commit()
-            success = "Successfully added to database"
-               return render_template('basketball.html', success=success)
+        basketball_db.commit()
+        success = "Successfully added to database"
+        return render_template('basketball.html', success=success)
     return render_template('basketball.html')
-
        
        
 
