@@ -2,7 +2,7 @@ from library import app
 #from library import db
 from flask import render_template, redirect, flash, url_for, session, request, abort
 import sqlite3
-from Publication import Publication
+from bball import Basketball
 
 app.secret_key = 'you-will-never-guess'
 
@@ -242,8 +242,8 @@ def basketball():
             Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls ))
             add_db.commit()
             success = "Successfully added to database"
-               return render_template('results/Results.html', success=success)
-    return render_template('results/Results.html')
+               return render_template('basketball.html', success=success)
+    return render_template('basketball.html')
 
        
        

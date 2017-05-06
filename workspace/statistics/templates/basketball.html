@@ -50,18 +50,21 @@ div {
 
 <div class="container">
 
-<form id="contact" action="{{url_for('basketball')}}" method="POST">
+  <form id="contact" action="{{url_for('basketball')}}" method="POST">
+     {% if success %}
+   <div class="alert alert-success">
+          <strong>{{success}}</strong> 
+    </div>
+    {%endif %}
+    <fieldset>
+    <label for="Field_Goal">Field Goals (Made-Attempted)</label>
+    <input type="text" id="Field_Goal" name="Field_Goal" placeholder="FG">
 
+    <label for="Three_Point">3 Pointers (Made-Attempted)</label>
+    <input type="text" id="Three_Point" name="Three_Point" placeholder="3PT">
 
-
-    <label for="FieldGoal">Field Goals (Made-Attempted)</label>
-    <input type="text" id="Field_Goal" name="FieldGoal" placeholder="FG">
-
-    <label for="ThreePoint">3 Pointers (Made-Attempted)</label>
-    <input type="text" id="Three_Point" name="ThreePoint" placeholder="3PT">
-
-    <label for="FreeThrow">Free Throws (Made-Attempted)</label>
-    <input type="text" id="Fhree_Throws" name="FhreeThrow" placeholder="FT">
+    <label for="Free_Throws">Free Throws (Made-Attempted)</label>
+    <input type="text" id="Fhree_Throws" name="Free_Throws" placeholder="FT">
 
     <label for="Rebounds">Rebounds</label>
     <input type="text" id="Rebounds" name="Rebounds" placeholder="REB">
@@ -78,15 +81,14 @@ div {
     <label for="Turnovers">Turnovers</label>
     <input type="text" id="Turnovers" name="Turnovers" placeholder="TO">
 
-    <label for="Fouls">Personal Fouls</label>
-    <input type="text" id="Personal_Fouls" name="Fouls" placeholder="PF">
+    <label for="Personal_Fouls">Personal Fouls</label>
+    <input type="text" id="Personal_Fouls" name="Personal_Fouls" placeholder="PF">
 
     <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-
-
-
-</form>
+    </fieldset>
+  </form>
 </div>
+
 </div>
 
 </body>
