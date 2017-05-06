@@ -36,11 +36,11 @@ def basketball():
     Turnovers =""
     Personal_Fouls = ""
 
-    db = sqlite3.connect('Stats.db')
+    db = sqlite3.connect('sports.db')
     cursor = db.cursor()
     cursor.execute('SELECT * FROM Basketball')
     if request.method == "POST":
-        basketball_db = sqlite3.connect('Stats.db')
+        basketball_db = sqlite3.connect('sports.db')
         add_cursor = basketball_db.cursor()
         #Basketball
         Field_Goal = request.form['Field_Goal']
@@ -75,11 +75,11 @@ def footballoffense():
     Field_Goal = ""
     Extra_Points = ""
 
-    db = sqlite3.connect('Stats.db')
+    db = sqlite3.connect('sports.db')
     cursor = db.cursor()
     cursor.execute('SELECT * FROM FootballOffense')
     if request.method == "POST":
-        footballoffense_db = sqlite3.connect('Stats.db')
+        footballoffense_db = sqlite3.connect('sports.db')
         add_cursor = footballoffense_db.cursor()
         #FootballOffense
         Completions = request.form['Completions']
@@ -105,11 +105,11 @@ def footballdefense():
     Sacks = ""
     Interception = ""
 
-    db = sqlite3.connect('Stats.db')
+    db = sqlite3.connect('sports.db')
     cursor = db.cursor()
     cursor.execute('SELECT * FROM Footballdefense')
     if request.method == "POST":
-        footballdefense_db = sqlite3.connect('Stats.db')
+        footballdefense_db = sqlite3.connect('sports.db')
         add_cursor = footballdefense_db.cursor()
         #Footballdefense
         Tackles = request.form['Tackles']
@@ -137,11 +137,11 @@ def soccer():
     Yellow_Cards = ""
     Red_Cards = ""
     
-    db = sqlite3.connect('Stats.db')
+    db = sqlite3.connect('sports.db')
     cursor = db.cursor()
     cursor.execute('SELECT * FROM soccer')
     if request.method == "POST":
-        soccer_db = sqlite3.connect('Stats.db')
+        soccer_db = sqlite3.connect('sports.db')
         add_cursor = soccer_db.cursor()
         #Soccer
         Shots = request.form['Shots']
@@ -169,11 +169,11 @@ def tennis():
     serves = ""
     net_faults = "" 
     
-    db = sqlite3.connect('Stats.db')
+    db = sqlite3.connect('sports.db')
     cursor = db.cursor()
     cursor.execute('SELECT * FROM soccer')
     if request.method == "POST":
-        tennis_db = sqlite3.connect('Stats.db')
+        tennis_db = sqlite3.connect('sports.db')
         add_cursor = tennis_db.cursor()
         #tennis
         winners = request.form['winners']
@@ -213,11 +213,11 @@ def golf():
     seventeenth = ""
     eighteenth = ""
     
-    db = sqlite3.connect('Stats.db')
+    db = sqlite3.connect('sports.db')
     cursor = db.cursor()
     cursor.execute('SELECT * FROM golf')
     if request.method == "POST":
-        golf_db = sqlite3.connect('Stats.db')
+        golf_db = sqlite3.connect('sports.db')
         add_cursor = golf_db.cursor()
         #golf
         course_name = request.form['course_name']
@@ -259,11 +259,11 @@ def hockey():
     off_target_shots = ""
     goals_stopped = ""
     
-    db = sqlite3.connect('Stats.db')
+    db = sqlite3.connect('sports.db')
     cursor = db.cursor()
     cursor.execute('SELECT * FROM hockey')
     if request.method == "POST":
-        hockey_db = sqlite3.connect('Stats.db')
+        hockey_db = sqlite3.connect('sports.db')
         add_cursor = hockey_db.cursor()
         #hockey
         goals = request.form['goals']
