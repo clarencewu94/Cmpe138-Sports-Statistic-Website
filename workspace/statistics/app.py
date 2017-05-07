@@ -300,9 +300,82 @@ def hockey():
         return render_template('hockey.html', success=success)
     return render_template('hockey.html')
 
-@app.route("/results")
-def results():
+@app.route("/results/<string:game>", methods=['GET', 'POST'])
+def results(game):
+    FG = ""
+    TPT = ""
+    FT = ""
+    REB = ""
+    AST = ""
+    STL = ""
+    BLK = ""
+    TO = ""
+    PF = ""
+    Basketball_dict = {}
+    search_game_list = []
+    if request.method == "GET":
+        cursor.execute("Select * FROM basketball where game = %s" % game)
+        search_game_list = cursor.fetchall()
+        for row in search_game_list:
+            FG = row[0]
+            TPT = row[1]
+            FT = row[2]
+            REB = row[3]
+            AST = row[4]
+            STL = row[5]
+            BLK = row[6]
+            TO = row[7]
+            PF = row[8]
+        Basketball = Basketball(FG, TPT, FT, REB, AST, STL, BLK, TO, PF)
+        Basketball_dict[game] = Basketball #storing in Data Structure for printing purposes
+        return render_template('results.html', game=game, Basketball_dict=Basketball_dict)
     return render_template("results.html")
+    
+'''
+@app.route('/library/<string:author_name>', methods=['GET', 'POST'])
+def library(author_name):
+    #Where all the SQLite3 magic will happen
+    db = sqlite3.connect('database.db')
+    c = db.cursor()
+    author_data = []
+    author_books_list = []
+    search_books_list = []
+    existRecord = True
+    if request.method == 'GET':
+        #if the HTTP Request is GET, retrieve the author name being searched
+        #filter the Author Table based on author_name
+        #Get the book_id (Foreign Key) from Author Table to retrieve the Book attributes from Books Table
+        c.execute("select * from Author WHERE Author_Name = '%s'" % author_name)
+        author_data = c.fetchall()
+        if (bool(author_data) == False):
+            existRecord = False
+        print (existRecord)
+        print ("checking existing record")
+        i = 0
+        while (i < len(author_data)): 
+            author_books_list.append(author_data[i][2])
+            i+=1
+        author_books_list = (sorted(set(author_books_list)))
+        
+        title = ""
+        year = 0
+        book_title = ""
+        pages = ""
+        publication_dict = {}
+        search_book_list = []
+        for book_id in (sorted(set(author_books_list))):
+            c.execute("select * from Books WHERE Book_ID = '%s'" % book_id)
+            search_book_list = c.fetchall()
+            for row in search_book_list:
+                year = row[0]
+                book_title = row[1]
+                title = row[2]
+                pages = row[3]
+                publication = Publication(title, year, book_title, pages, None)
+                publication_dict[book_id] = publication #storing in Data Structure for printing purposes
+        return render_template('book/book.html', author_name=author_name, publication_dict=publication_dict, existRecord=existRecord)
+    return render_template('book/book.html')
+    '''
 
 
 if __name__ == "__main__":
