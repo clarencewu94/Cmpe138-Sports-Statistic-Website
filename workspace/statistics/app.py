@@ -62,10 +62,6 @@ def basketball():
             Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls ))
         basketball_db.commit()
         basketball_db.close()
-<<<<<<< HEAD
-        db.close()
-=======
->>>>>>> 1153095961376e28cb6b56e49e3703fab528cae7
         success = "Successfully added to database"
         return render_template('basketball.html', success=success)
     return render_template('basketball.html')
