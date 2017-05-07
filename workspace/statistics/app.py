@@ -57,8 +57,8 @@ def basketball():
         Personal_Fouls = request.form['Personal_Fouls']
       
         add_cursor.execute('''INSERT INTO basketball(  
-            field_goals, three_pointers, free_throws, rebounds, assists, steals, blocks, turnovers, personal_fouls)
-            Values(?,?,?,?,?,?,?,?,?)''', (  #Basketball
+            field_goals, three_pointers, free_throws, rebounds, assists, steals, blocks, turnovers, personal_fouls, game)
+            Values(?,?,?,?,?,?,?,?,?, CURRENT_TIMESTAMP)''', (  #Basketball
             Field_Goal, Three_Point, Free_Throws, Rebounds, Assists, Steals, Blocks, Turnovers,Personal_Fouls ))
         basketball_db.commit()
         basketball_db.close()
