@@ -311,7 +311,7 @@ def results(game):
     BLK = ""
     TO = ""
     PF = ""
-    Basketball_dict = {}
+    bball_dict = {}
     search_game_list = []
     if request.method == "GET":
         cursor.execute("Select * FROM basketball where game = %s" % game)
@@ -326,9 +326,9 @@ def results(game):
             BLK = row[6]
             TO = row[7]
             PF = row[8]
-        Basketball = Basketball(FG, TPT, FT, REB, AST, STL, BLK, TO, PF)
-        Basketball_dict[game] = Basketball #storing in Data Structure for printing purposes
-        return render_template('results.html', game=game, Basketball_dict=Basketball_dict)
+        bball = bball(FG, TPT, FT, REB, AST, STL, BLK, TO, PF)
+        bball_dict[game] = bball #storing in Data Structure for printing purposes
+        return render_template('results.html', game=game, bball_dict=bball_dict)
     return render_template("results.html")
     
 '''
