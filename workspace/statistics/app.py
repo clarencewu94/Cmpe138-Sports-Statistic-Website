@@ -376,7 +376,25 @@ def library(author_name):
         return render_template('book/book.html', author_name=author_name, publication_dict=publication_dict, existRecord=existRecord)
     return render_template('book/book.html')
     '''
-
+'''
+@app.route('/delete/<int:book_id>', methods=['GET', 'POST'])
+def delete(book_id, author_name=None):
+    success = ""
+    db = sqlite3.connect('sports.db');
+    c = db.cursor()
+    if(request.method == "GET"):
+        c.execute("delete from Books WHERE Book_ID = '%s'" % book_id)
+        db.commit()
+        
+        database = sqlite3.connect('sports.db');
+        cursor = database.cursor()
+        cursor.execute("delete from Author WHERE Book_ID = '%s'" % book_id)
+        database.commit()
+        author_name = request.args.get('author_name')
+        success = "Deleted record " + str(book_id) + " successfully"
+        return redirect(url_for('library', author_name=author_name, success=success))
+    return render_template('book/add.html', success=success)
+    '''
 
 if __name__ == "__main__":
 	app.run(debug=True)
