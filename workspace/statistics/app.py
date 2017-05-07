@@ -29,6 +29,7 @@ def sessionhub():
 @app.route('/basketball', methods=['GET', 'POST'])
 def basketball():
     #Basketball
+    basketball_id = 0;
     Field_Goal = ""
     Three_Point = ""
     Free_Throws = ""
@@ -72,6 +73,7 @@ def football():
 
 @app.route("/footballoffense", methods=['GET', 'POST'])
 def footballoffense():
+    footballoffense_id = 0;
     Completions = ""
     Yards = ""
     Touchdown = ""
@@ -79,7 +81,6 @@ def footballoffense():
     Field_Goal = ""
     Extra_Points = ""
 
- 
     cursor.execute('SELECT * FROM foffense')
     if request.method == "POST":
         cursor.execute("PRAGMA busy_timeout = 10000")
@@ -106,12 +107,12 @@ def footballoffense():
 
 @app.route("/footballdefense", methods=['GET', 'POST'])
 def footballdefense():
+    footballdefense_id = 0;
     Tackles = ""
     Fumbles = ""
     Sacks = ""
     Interception = ""
 
-   
     cursor.execute('SELECT * FROM fdefense')
     if request.method == "POST":
         cursor.execute("PRAGMA busy_timeout = 10000")
@@ -138,6 +139,7 @@ def footballdefense():
 @app.route("/soccer", methods=['GET', 'POST'])
 def soccer():
     #Soccer
+    soccer_id = 0;
     Shots = ""
     Saves = ""
     Offside = ""
@@ -146,7 +148,6 @@ def soccer():
     Yellow_Cards = ""
     Red_Cards = ""
     
-   
     cursor.execute('SELECT * FROM soccer')
     if request.method == "POST":
         cursor.execute("PRAGMA busy_timeout = 10000")
@@ -174,6 +175,7 @@ def soccer():
 @app.route("/tennis", methods=['GET', 'POST'])
 def tennis():
      #tennis
+    tennis_id = 0;
     winners = ""
     double_faults = ""
     aces = ""
@@ -207,6 +209,7 @@ def tennis():
 @app.route("/golf", methods=['GET', 'POST'])
 def golf():
     #golf
+    golf_id = 0;
     course_name = ""
     first = ""
     second = ""
@@ -269,6 +272,7 @@ def golf():
 @app.route("/hockey", methods=['GET', 'POST'])
 def hockey():
     #hockey
+    hockey_id = 0;
     Goals = ""
     Defence_Blocked_Shots  = ""
     Off_Target_Shots = ""
