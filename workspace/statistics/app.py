@@ -30,15 +30,15 @@ def sessionhub():
 def basketball():
     #Basketball
     basketball_id = 0;
-    Field_Goal = ""
-    Three_Point = ""
-    Free_Throws = ""
-    Rebounds = ""
-    Assists = ""
-    Steals = ""
-    Blocks = ""
-    Turnovers =""
-    Personal_Fouls = ""
+    Field_Goal = None
+    Three_Point = None
+    Free_Throws = None
+    Rebounds = None
+    Assists = None
+    Steals = None
+    Blocks = None
+    Turnovers = None
+    Personal_Fouls = None
 
     cursor.execute('SELECT * FROM basketball')
     if request.method == "POST":
@@ -302,15 +302,15 @@ def hockey():
 
 @app.route("/results/<string:game>", methods=['GET', 'POST'])
 def results(game):
-    FG = ""
-    TPT = ""
-    FT = ""
-    REB = ""
-    AST = ""
-    STL = ""
-    BLK = ""
-    TO = ""
-    PF = ""
+    FG = None
+    TPT = None
+    FT = None
+    REB = None
+    AST = None
+    STL = None
+    BLK = None
+    TO = None
+    PF = None
     bball_dict = {}
     search_game_list = []
     if request.method == "GET":
