@@ -39,7 +39,7 @@ class Basketball:
     def get_PF(self):
         return self.PF
 
-class Football:
+class foffense:
     def __init__(self,CMP,YDS,TD,INTs,FG,XP):
 
         self.CMP = CMP
@@ -63,12 +63,35 @@ class Football:
     
     def get_FG(self):
         return self.FG
+        
+    def get_XP(self):
+        return self.XP
+
+class fdefense:
+    def __init__(self,tackles,fumbles,sacks,interception):
+
+        self.tackles = tackles
+        self.fumbles = fumbles
+        self.sacks = sacks
+        self.interception = interception
+
+    def get_tackles(self):
+        return self.tackles
+    
+    def get_fumbles(self):
+        return self.fumbles
+    
+    def get_sacks(self):
+        return self.sacks
+    
+    def get_interception(self):
+        return self.interception
     
 class soccer:
     def __init__(self,shows, saves, offside, fouls, assists, yellow_cards, red_cards):
 
         self.shows = saves
-        self.saves = offsides
+        self.saves = offside
         self.fouls = fouls
         self.assists = assists
         self.yellow_cards = yellow_cards
@@ -93,7 +116,7 @@ class soccer:
         return self.red_cards
 
 class tennis:
-    def init(self, double_faults, aces, serves, net_faults,):
+    def __init__(self, double_faults, aces, serves, net_faults,):
 
         self.double_faults = double_faults 
         self.serves = serves
@@ -111,6 +134,7 @@ class tennis:
 
     def get_aces(self):
         return self.aces 
+    
 
 class golf:
     def __init__(self, course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth):
