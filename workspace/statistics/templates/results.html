@@ -54,7 +54,6 @@
   <h1>You Searched for: {{game}}</h1>
   <div class="tbl-header">
     
-    {% if existRecord %}
     <table cellpadding="0" cellspacing="0" border="0">
       <thead>
         <tr>
@@ -73,7 +72,7 @@
     </table>
   </div>
   <div class="tbl-content">
-    {% for key, value in bballdict.items() %}
+    {% for key, value in basketball_dict.items() %}
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
         <tr>
@@ -92,14 +91,7 @@
       </tbody>
     </table>
     {% endfor %}
-    {% else %}
-
-  {% endif %}
-   {% if success %}
-   <div class="alert alert-success">
-          <strong>{{success}}</strong> 
-    </div>
-    {% endif %}
+   
   </div>
 
 </section>
