@@ -303,7 +303,7 @@ def hockey():
 
 @app.route("/results/<int:game>", methods=['GET', 'POST'])
 def results(game):
-<<<<<<< HEAD
+
     FG = None
     TPT = None
     FT = None
@@ -314,18 +314,7 @@ def results(game):
     TO = None
     PF = None
     bball_dict = {}
-=======
-    FG = ""
-    TPT = ""
-    FT = ""
-    REB = ""
-    AST = ""
-    STL = ""
-    BLK = ""
-    TO = ""
-    PF = ""
-    basketball_dict = {}
->>>>>>> e6d8ad862f6af87e2f1c4a6af992f9401ed9bd32
+
     search_game_list = []
     if request.method == "GET":
         cursor.execute("select * from basketball")
