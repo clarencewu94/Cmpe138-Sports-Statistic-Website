@@ -6,6 +6,9 @@ from Basketball import Basketball
 app = Flask(__name__)
 
 
+#from DatabaseManager import DatabaseManager
+
+
 db = sqlite3.connect('sports.db', check_same_thread=False)
 cursor = db.cursor()
 
@@ -158,6 +161,7 @@ def soccer():
         Saves = request.form['Saves']
         Offside = request.form['Offside']
         Fouls = request.form['Fouls']
+        Assists= request.form ['Assists']
         Yellow_Cards = request.form['Yellow_Cards']
         Red_Cards = request.form['Red_Cards']
       
@@ -525,6 +529,7 @@ def golfResults(sport="golf"):
             golf_dict[game] = golf #storing in Data Structure for printing purposes
         return render_template('golfResults.html', game=game, golf_dict=golf_dict)
     return render_template("golfResults.html")
+<<<<<<< HEAD
 '''
 @app.route('/library/<string:author_name>', methods=['GET', 'POST'])
 def library(author_name):
@@ -589,3 +594,9 @@ def delete(book_id, author_name=None):
         return redirect(url_for('library', author_name=author_name, success=success))
     return render_template('book/add.html', success=success)
     '''
+=======
+
+
+if __name__ == "__main__":
+	app.run(debug=True)
+>>>>>>> 7a8e61f58d6b53971e99a0ea1d79d7758de06f45
