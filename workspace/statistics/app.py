@@ -1,6 +1,7 @@
 from flask import Flask, render_template, flash, url_for, session, request, abort
 import sqlite3
 from Basketball import Basketball
+from Basketball import Soccer
 
 
 app = Flask(__name__)
@@ -67,7 +68,7 @@ def basketball():
         basketball_db.commit()
         basketball_db.close()
         success = "Successfully added to database"
-        return render_template('basketball.html', success=success)
+        return render_template('mainmenu.html', success=success)
     return render_template('basketball.html')
        
 @app.route("/football")
@@ -398,7 +399,7 @@ def fdefenseResults(sport = "fdefense"):
     
 @app.route("/soccerResults/<string:sport>", methods=['GET', 'POST'])
 def soccerResults(sport="soccer"):
-    shows = ""
+    shots = ""
     saves = ""
     offsides = ""
     fouls = ""
@@ -415,14 +416,14 @@ def soccerResults(sport="soccer"):
 
         for row in search_game_list:
             game = row[1]
-            shows = row[2]
+            shots = row[2]
             saves = row[3]
             offsides = row[4]
             fouls = row[5]
             assists = row[6]
             yellow_cards = row[7]
             red_cards = row[8]
-            soccer = Soccer(shows, saves, offsides, fouls, assists, yellow_cards, red_cards)
+            soccer = Soccer(shots, saves, offsides, fouls, assists, yellow_cards, red_cards)
             soccer_dict[game] = soccer #storing in Data Structure for printing purposes
         return render_template('soccerResults.html', game=game, soccer_dict=soccer_dict)
     return render_template("soccerResults.html")
@@ -529,74 +530,8 @@ def golfResults(sport="golf"):
             golf_dict[game] = golf #storing in Data Structure for printing purposes
         return render_template('golfResults.html', game=game, golf_dict=golf_dict)
     return render_template("golfResults.html")
-<<<<<<< HEAD
-'''
-@app.route('/library/<string:author_name>', methods=['GET', 'POST'])
-def library(author_name):
-    #Where all the SQLite3 magic will happen
-    db = sqlite3.connect('database.db')
-    c = db.cursor()
-    author_data = []
-    author_books_list = []
-    search_books_list = []
-    existRecord = True
-    if request.method == 'GET':
-        #if the HTTP Request is GET, retrieve the author name being searched
-        #filter the Author Table based on author_name
-        #Get the book_id (Foreign Key) from Author Table to retrieve the Book attributes from Books Table
-        c.execute("select * from Author WHERE Author_Name = '%s'" % author_name)
-        author_data = c.fetchall()
-        if (bool(author_data) == False):
-            existRecord = False
-        print (existRecord)
-        print ("checking existing record")
-        i = 0
-        while (i < len(author_data)): 
-            author_books_list.append(author_data[i][2])
-            i+=1
-        author_books_list = (sorted(set(author_books_list)))
-        
-        title = ""
-        year = 0
-        book_title = ""
-        pages = ""
-        publication_dict = {}
-        search_book_list = []
-        for book_id in (sorted(set(author_books_list))):
-            c.execute("select * from Books WHERE Book_ID = '%s'" % book_id)
-            search_book_list = c.fetchall()
-            for row in search_book_list:
-                year = row[0]
-                book_title = row[1]
-                title = row[2]
-                pages = row[3]
-                publication = Publication(title, year, book_title, pages, None)
-                publication_dict[book_id] = publication #storing in Data Structure for printing purposes
-        return render_template('book/book.html', author_name=author_name, publication_dict=publication_dict, existRecord=existRecord)
-    return render_template('book/book.html')
-    '''
-'''
-@app.route('/delete/<int:book_id>', methods=['GET', 'POST'])
-def delete(book_id, author_name=None):
-    success = ""
-    db = sqlite3.connect('sports.db');
-    c = db.cursor()
-    if(request.method == "GET"):
-        c.execute("delete from Books WHERE Book_ID = '%s'" % book_id)
-        db.commit()
-        
-        database = sqlite3.connect('sports.db');
-        cursor = database.cursor()
-        cursor.execute("delete from Author WHERE Book_ID = '%s'" % book_id)
-        database.commit()
-        author_name = request.args.get('author_name')
-        success = "Deleted record " + str(book_id) + " successfully"
-        return redirect(url_for('library', author_name=author_name, success=success))
-    return render_template('book/add.html', success=success)
-    '''
-=======
+
 
 
 if __name__ == "__main__":
 	app.run(debug=True)
->>>>>>> 7a8e61f58d6b53971e99a0ea1d79d7758de06f45
