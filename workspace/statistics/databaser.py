@@ -4,7 +4,7 @@ c = conn.cursor()
 
 c.execute('''DROP TABLE IF EXISTS user''')
 c.execute('''CREATE TABLE user
-             (userid text, password text, PRIMARY KEY (userid))''')
+             (userid text not null, password text not null, id integer primary key autoincrement)''')
 
 c.execute('''DROP TABLE IF EXISTS basketball''')
 c.execute('''CREATE TABLE basketball
