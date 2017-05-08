@@ -4,7 +4,7 @@ c = conn.cursor()
 
 c.execute('''DROP TABLE IF EXISTS user''')
 c.execute('''CREATE TABLE user
-             (userid text, password text, PRIMARY KEY (userid))''')
+             (userid text not null, password text not null, id integer primary key autoincrement)''')
 
 c.execute('''DROP TABLE IF EXISTS basketball''')
 c.execute('''CREATE TABLE basketball
@@ -20,7 +20,7 @@ c.execute('''CREATE TABLE tennis
 
 c.execute('''DROP TABLE IF EXISTS golf''')
 c.execute('''CREATE TABLE golf
-             (userid text, game INTEGER PRIMARY KEY AUTOINCREMENT, course_name text, first text, second text, third text, fourth text, fifth text, sixth text, seventh text, eighth text, ninth text, tenth text, eleventh text, twelfth text, thirteenth text, fourteenth text, fifteenth text, sixteenth text, seventeenth text, eighteenth text, FOREIGN KEY (userid) REFERENCES user(userid) ON DELETE CASCADE)''')
+             (userid text, game INTEGER PRIMARY KEY AUTOINCREMENT, course_name text, first text, second text, third text, fourth text, fifth text, sixth text, seventh text, eighth text, ninth text, FOREIGN KEY (userid) REFERENCES user(userid) ON DELETE CASCADE)''')
 
 c.execute('''DROP TABLE IF EXISTS hockey''')
 c.execute('''CREATE TABLE hockey
