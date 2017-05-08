@@ -39,15 +39,15 @@ def sessionhub():
 @app.route('/basketball', methods=['GET', 'POST'])
 def basketball():
     #Basketball
-    Field_Goal = ""
-    Three_Point = ""
-    Free_Throws = ""
-    Rebounds = ""
-    Assists = ""
-    Steals = ""
-    Blocks = ""
-    Turnovers =""
-    Personal_Fouls = ""
+    Field_Goal = None
+    Three_Point = None
+    Free_Throws = None
+    Rebounds = None
+    Assists = None
+    Steals = None
+    Blocks = None
+    Turnovers = None
+    Personal_Fouls = None
 
     cursor.execute('SELECT * FROM basketball')
     if request.method == "POST":
@@ -82,12 +82,12 @@ def football():
 
 @app.route("/foffense", methods=['GET', 'POST'])
 def foffense():
-    Completions = ""
-    Yards = ""
-    Touchdown = ""
-    Interception = ""
-    Field_Goal = ""
-    Extra_Points = ""
+    Completions = None
+    Yards = None
+    Touchdown = None
+    Interception = None
+    Field_Goal = None
+    Extra_Points = None
 
     cursor.execute('SELECT * FROM foffense')
     if request.method == "POST":
@@ -110,15 +110,15 @@ def foffense():
         foffense_db.commit()
         foffense_db.close()
         success = "Successfully added to database"
-        return render_template('foffense.html', success=success)
+        return render_template('mainmenu.html', success=success)
     return render_template("foffense.html")
 
 @app.route("/fdefense", methods=['GET', 'POST'])
 def fdefense():
-    Tackles = ""
-    Fumbles = ""
-    Sacks = ""
-    Interception = ""
+    Tackles = None
+    Fumbles = None
+    Sacks = None
+    Interception = None
 
    
     cursor.execute('SELECT * FROM fdefense')
@@ -141,19 +141,19 @@ def fdefense():
         fdefense_db.close()
         
         success = "Successfully added to database"
-        return render_template('fdefense.html', success=success)
+        return render_template('mainmenu.html', success=success)
     return render_template("fdefense.html")
 
 @app.route("/soccer", methods=['GET', 'POST'])
 def soccer():
     #Soccer
-    Shots = ""
-    Saves = ""
-    Offside = ""
-    Fouls = ""
-    Assists = "" 
-    Yellow_Cards = ""
-    Red_Cards = ""
+    Shots = None
+    Saves = None
+    Offside = None
+    Fouls = None
+    Assists = None 
+    Yellow_Cards = None
+    Red_Cards = None
     
    
     cursor.execute('SELECT * FROM soccer')
@@ -178,17 +178,17 @@ def soccer():
         soccer_db.commit()
         soccer_db.close()
         success = "Successfully added to database"
-        return render_template('soccer.html', success=success)
+        return render_template('mainmenu.html', success=success)
     return render_template('soccer.html')
 
 @app.route("/tennis", methods=['GET', 'POST'])
 def tennis():
      #tennis
-    winners = ""
-    double_faults = ""
-    aces = ""
-    serves = ""
-    net_faults = "" 
+    winners = None
+    double_faults = None
+    aces = None
+    serves = None
+    net_faults = None 
     
   
     cursor.execute('SELECT * FROM tennis')
@@ -211,7 +211,7 @@ def tennis():
         tennis_db.commit()
         tennis_db.close()
         success = "Successfully added to database"
-        return render_template('tennis.html', success=success)
+        return render_template('mainmenu.html', success=success)
     return render_template('tennis.html')
 
 @app.route("/golf", methods=['GET', 'POST'])
@@ -257,17 +257,17 @@ def golf():
         golf_db.commit()
         golf_db.close()
         success = "Successfully added to database"
-        return render_template('golf.html', success=success)
+        return render_template('mainmenu.html', success=success)
     return render_template('golf.html')
 
 
 @app.route("/hockey", methods=['GET', 'POST'])
 def hockey():
     #hockey
-    Goals = ""
-    Defence_Blocked_Shots  = ""
-    Off_Target_Shots = ""
-    Goals_Stopped = ""
+    Goals = None
+    Defence_Blocked_Shots  = None
+    Off_Target_Shots = None
+    Goals_Stopped = None
     
     cursor.execute('SELECT * FROM hockey')
     if request.method == "POST":
@@ -288,7 +288,7 @@ def hockey():
         hockey_db.commit()
         hockey_db.close()
         success = "Successfully added to database"
-        return render_template('hockey.html', success=success)
+        return render_template('mainmenu.html', success=success)
     return render_template('hockey.html')
 
 @app.route("/resulthub")
