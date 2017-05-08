@@ -88,20 +88,24 @@ class fdefense:
         return self.interception
     
 class soccer:
-    def __init__(self,shows, saves, offside, fouls, assists, yellow_cards, red_cards):
+    def __init__(self,shots, saves, offside, fouls, assists, yellow_cards, red_cards):
 
-        self.shows = saves
-        self.saves = offside
+        self.shots = shots
+        self.saves = saves
+        self.offside = offside
         self.fouls = fouls
         self.assists = assists
         self.yellow_cards = yellow_cards
         self.red_cards = red_cards
 
-    def get_shows(self):
-        return self.shows
+    def get_shots(self):
+        return self.shots
     
     def get_saves(self):
         return self.saves
+
+    def get_offside(self):
+        return self.offside
     
     def get_fouls(self):
         return self.fouls 
@@ -116,15 +120,15 @@ class soccer:
         return self.red_cards
 
 class tennis:
-    def __init__(self, double_faults, aces, serves, net_faults,):
+    def __init__(self, aces, serves, net_faults, double_faults):
 
-        self.double_faults = double_faults 
+        self.aces = aces
         self.serves = serves
         self.net_faults = net_faults
-        self.aces = aces
+        self.double_faults = double_faults 
 
-    def get_double_faults(self):
-        return self.double_faults
+    def get_aces(self):
+        return self.aces 
 
     def get_serves(self):
         return self.serves
@@ -132,9 +136,10 @@ class tennis:
     def get_net_faults(self):
         return self.net_faults
 
-    def get_aces(self):
-        return self.aces 
-    
+    def get_double_faults(self):
+        return self.double_faults
+
+
 
 class golf:
     def __init__(self, course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth):

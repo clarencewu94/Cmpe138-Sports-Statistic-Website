@@ -158,6 +158,7 @@ def soccer():
         Shots = request.form['Shots']
         Saves = request.form['Saves']
         Offside = request.form['Offside']
+        Assists = request.form['Assists']
         Fouls = request.form['Fouls']
         Yellow_Cards = request.form['Yellow_Cards']
         Red_Cards = request.form['Red_Cards']
@@ -303,15 +304,15 @@ def resulthub():
     
 @app.route("/bballresults/<int:game>", methods=['GET', 'POST'])
 def bballresults(game):
-    FG = ""
-    TPT = ""
-    FT = ""
-    REB = ""
-    AST = ""
-    STL = ""
-    BLK = ""
-    TO = ""
-    PF = ""
+    FG = None
+    TPT = None
+    FT = None
+    REB = None
+    AST = None
+    STL = None
+    BLK = None
+    TO = None
+    PF = None
     basketball_dict = {}
     search_game_list = []
     if request.method == "GET":
@@ -380,20 +381,20 @@ def fdefenseResults(game):
     
 @app.route("/soccerResults/<int:game>", methods=['GET', 'POST'])
 def soccerResults(game):
-    shows = ""
-    saves = ""
-    offsides = ""
-    fouls = ""
-    assists = ""
-    yellow_cards = ""
-    red_cards = ""
+    shots = None
+    saves = None
+    offsides = None
+    fouls = None
+    assists = None
+    yellow_cards = None
+    red_cards = None
     soccer_dict = {}
     search_game_list = []
     if request.method == "GET":
         cursor.execute("select * from soccer")
         search_game_list = cursor.fetchall()
         for row in search_game_list:
-            shows = row[0]
+            shots = row[0]
             saves = row[1]
             offsides = row[2]
             fouls = row[3]
@@ -401,10 +402,83 @@ def soccerResults(game):
             yellow_cards = row[5]
             red_cards = row[6]
             
-        soccers = soccer(shows, saves, offsides, fouls, assists, yellow_cards, red_cards)
+        soccers = soccer(shots, saves, offsides, fouls, assists, yellow_cards, red_cards)
         soccer_dict[game] = soccers #storing in Data Structure for printing purposes
         return render_template('soccerResults.html', game=game, soccer_dict=soccer_dict)
     return render_template("soccerResults.html")
+
+@app.route("/golfResults/<int:game>", methods=['GET', 'POST'])
+def golfResults(game):
+    course_name = None
+    first = None
+    second = None
+    third = None
+    fourth = None
+    fifth = None
+    sixth = None
+    seventh = None
+    eighth = None
+    ninth = None
+    tenth = None
+    thirteenth = None
+    fourteenth = None
+    fifteenth = None
+    sixteenth = None
+    seventeenth = None
+    eighteenth = None
+    golf_dict = {}
+    search_game_list = []
+    if request.method == "GET":
+        cursor.execute("select * from golf")
+        search_game_list = cursor.fetchall()
+        for row in search_game_list:
+            course_name = row[0]
+            first = row[1]
+            second = row[2]
+            third = row[3]
+            fourth = row[4]
+            fifth = row[5]
+            sixth = row[6]
+            seventh = row[7]
+            eighth = row[8]
+            ninth = row[9]
+            tenth = row[10]
+            eleventh = row[11]
+            twelfth = row[12]
+            thirteenth = row[13]
+            fourteenth = row[14]
+            fifteenth = row[15]
+            sixteenth = row[16]
+            seventeenth = row[17]
+            eighteenth = row[18]
+            
+        golf = golf(course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth)
+        golf_dict[game] = golf #storing in Data Structure for printing purposes
+        return render_template('golfResults.html', game=game, golf_dict=soccer_dict)
+    return render_template("golfResults.html")
+
+@app.route("/tennisResults/<int:game>", methods=['GET', 'POST'])
+def tennisResults(game):
+    aces = ""
+    serves = ""
+    net_faults = ""
+    double_faults = ""
+    tennis_dict = {}
+    search_game_list = []
+    if request.method == "GET":
+        cursor.execute("select * from tennis")
+        search_game_list = cursor.fetchall()
+        for row in search_game_list:
+            aces = row[0]
+            serves = row[1]
+            net_faults = row[2]
+            double_faults = row[3]
+            
+        tenniss = tennis(aces, serves, net_faults, double_faults)
+        tennis_dict[game] = tenniss #storing in Data Structure for printing purposes
+        return render_template('tennisResults.html', game=game, tennis_dict=tennis_dict)
+    return render_template("tennisResults.html")
+
 
 if __name__ == "__main__":
 	app.run(debug=True)
