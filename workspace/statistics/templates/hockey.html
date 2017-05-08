@@ -44,7 +44,9 @@ div {
 
 <center><h2>Enter your hockey statistics here</h2>
 </center>
-
+                    <ret>
+                        <a href="/mainmenu">Home</a>
+                    </ret>
 <form id="contact" action="{{url_for('hockey')}}" method="POST">
      {% if success %}
    <div class="alert alert-success">
@@ -63,7 +65,7 @@ div {
     <label for="Off_Target">Off-Target Shots</label>
     <input type="text" id="Off_Target_Shots" name="Off_Target_Shots" placeholder="Off-Target Shots">
 
-    <label for="Stopped">Goals Stopped (Saved-Failed)</label>
+    <label for="Stopped">Goals Stopped (Saved-Total)</label>
     <input type="text" id="Goals_Stopped" name="Goals_Stopped" placeholder="Saved-Failed">
 
     <input type="submit" value="Input">
