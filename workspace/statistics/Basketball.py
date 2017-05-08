@@ -88,9 +88,9 @@ class Fdefense:
         return self.interception
     
 class Soccer:
-    def __init__(self,shows, saves, offside, fouls, assists, yellow_cards, red_cards):
+    def __init__(self,shots, saves, offside, fouls, assists, yellow_cards, red_cards):
 
-        self.shows = shows
+        self.shots = shots
         self.saves = saves
         self.offside = offside
         self.fouls = fouls
@@ -99,7 +99,7 @@ class Soccer:
         self.red_cards = red_cards
 
     def get_shows(self):
-        return self.shows
+        return self.shots
     
     def get_saves(self):
         return self.saves
