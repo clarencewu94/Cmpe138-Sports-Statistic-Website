@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Tennis history</title>
+  <title>FootballDefense history</title>
   
   <!-- Imports -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -58,27 +58,24 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>winners</th>
-          <th>double_faults</th>        
-          <th>serves</th>
-          <th>net_faults</th>
-          <th>aces</th>
+          <th>Tackles</th>        
+          <th>Fumbles</th>
+          <th>Sacks</th>
+          <th>Interception</th>
         </tr>
       </thead>
     </table>
   </div>
-
   <div class="tbl-content">
-    {% for key, value in tennis_dict.items() %}
+    {% for key, value in fdefense_dict.items() %}
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
         <tr>
           <td>{{key}}</td>
-          <td>{{value.get_winners()}}</td>
-          <td>{{value.get_double_faults()}} </td>
-          <td>{{value.get_serves()}}</td>
-          <td>{{value.get_net_faults()}}</td>
-          <td>{{value.get_aces()}}</td>
+          <td>{{value.get_tackles()}} </td>
+          <td>{{value.get_fumbles()}}</td>
+          <td>{{value.get_sacks()}}</td>
+          <td>{{value.get_interception()}}</td>
 
         </tr>
       </tbody>

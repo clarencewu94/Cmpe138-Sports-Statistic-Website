@@ -5,7 +5,7 @@
 
 <body style="background-color:antiquewhite;">
 
-<h1>Soccer Session</h1>
+<h1>Football Offense Session</h1>
 
 
 <style>
@@ -42,45 +42,42 @@ div {
 </style>
 <body>
 
-<center><h2>Enter your soccer statistics here</h2>
+<center><h2>Enter your offensive football statistics here</h2>
 </center>
 
-<form id="contact" action="{{url_for('soccer')}}" method="POST">
+  <form id="contact" action="{{url_for('foffense')}}" method="POST">
      {% if success %}
    <div class="alert alert-success">
           <strong>{{success}}</strong> 
     </div>
     {%endif %}
     <fieldset>
+
 <div>
-  <form action="/">
-    <label for="Shots">Shots (Made-Attempted)</label>
-    <input type="text" id="Shots" name="Shots" placeholder="Made-Attempted">
+   <form action="/">
+    <label for="Completions">Completions (Completions-Attempted)</label>
+    <input type="text" id="CMP" name="Completions" placeholder="CMP">
 
-    <label for="Saves">Saves (Saved-Failed)</label>
-    <input type="text" id="Saves" name="Saves" placeholder="Saved-Failed">
+    <label for="Yards">Yards</label>
+    <input type="text" id="YDS" name="Yards" placeholder="YDS">
 
-    <label for="Offside">Offside</label>
-    <input type="text" id="Offside" name="Offside" placeholder="Offside">
+    <label for="Touchdown">Touchdowns</label>
+    <input type="text" id="TD" name="Touchdown" placeholder="TD">
 
-    <label for="Fouls">Fouls</label>
-    <input type="text" id="Fouls" name="Fouls" placeholder="Fouls">
+    <label for="Interception">Interceptions</label>
+    <input type="text" id="INTs" name="Interception" placeholder="INTs">
 
-    <label for="Assists">Assists</label>
-    <input type="text" id="Assists" name="Assists" placeholder="AST">
+    <label for="Field_Goal">Field Goals (FG-FGA)</label>
+    <input type="text" id="FG" name="Field_Goal" placeholder="FG">
 
-    <label for="Yellow Cards">Yellow Cards</label>
-    <input type="text" id="Yellow_Cards" name="Yellow_Cards" placeholder="Yellow Cards">
-
-    <label for="Red Cards">Red Cards</label>
-    <input type="text" id="Red_Cards" name="Red_Cards" placeholder="Red Cards">
+    <label for="Extra_Points">Extra Points</label>
+    <input type="text" id="XP" name="Extra_Points" placeholder="XP">
 
     <input type="submit" value="Input">
     </fieldset>
   </form>
 </div>
 </div>
-
 
 </body>
 </body>

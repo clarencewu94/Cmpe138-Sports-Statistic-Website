@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Tennis history</title>
+  <title>Welcome to the Library</title>
   
   <!-- Imports -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -27,10 +27,13 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a class="navbar-brand" href="/">Library Database</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -39,7 +42,7 @@
                         <a href="/">Home</a>
                     </li>
                     <li>
-                        <a href="/session">Add Publication</a>
+                        <a href="/add">Add Publication</a>
                     </li>
                 </ul>
             </div>
@@ -51,40 +54,50 @@
 <div class="container">
     <section>
   <!--for demo wrap-->
-  <h1>You Searched for: {{game}}</h1>
+  <h1>You Searched for: {{author_name}}</h1>
   <div class="tbl-header">
     
+    {% if existRecord %}
     <table cellpadding="0" cellspacing="0" border="0">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>winners</th>
-          <th>double_faults</th>        
-          <th>serves</th>
-          <th>net_faults</th>
-          <th>aces</th>
+          <th>ID</th>          
+          <th>Book Title</th>
+          <th>Title</th>
+          <th>Pages</th>
+          <th>Year</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
       </thead>
     </table>
   </div>
-
   <div class="tbl-content">
-    {% for key, value in tennis_dict.items() %}
+    {% for key, value in publication_dict.items() %}
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
         <tr>
           <td>{{key}}</td>
-          <td>{{value.get_winners()}}</td>
-          <td>{{value.get_double_faults()}} </td>
-          <td>{{value.get_serves()}}</td>
-          <td>{{value.get_net_faults()}}</td>
-          <td>{{value.get_aces()}}</td>
-
+          <td>{{value.get_bookJournal()}} </td>
+          <td>{{value.get_bookTitle()}}</td>
+          <td>{{value.get_bookPages()}}</td>
+          <td>{{value.get_bookYear()}}</td>
+          <td><a href = "{{ url_for('edit', book_id=key, author_name=author_name)}}">Edit</a></td>
+          <td><a href = "{{ url_for('delete', author_name=author_name, book_id=key)}}">Delete</a></td>
         </tr>
       </tbody>
     </table>
     {% endfor %}
-   
+    {% else %}
+    <div class="alert alert-danger">
+      <strong>Author does not exist, please try again</strong> 
+    </div>
+  {% endif %}
+   {% if success %}
+   <div class="alert alert-success">
+          <strong>{{success}}</strong> 
+    </div>
+    {% endif %}
   </div>
 
 </section>

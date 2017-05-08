@@ -1,9 +1,15 @@
-from flask import Flask, render_template, flash, url_for, session, request, abort
+
+#from library import db
+from flask import render_template, redirect, flash, url_for, session, request, abort
 import sqlite3
 from Basketball import Basketball
-
-
-app = Flask(__name__)
+from Basketball import Foffense
+from Basketball import Fdefense
+from Basketball import Golf
+from Basketball import Hockey
+from Basketball import Soccer
+from Basketball import Tennis
+#from DatabaseManager import DatabaseManager
 
 
 db = sqlite3.connect('sports.db', check_same_thread=False)
