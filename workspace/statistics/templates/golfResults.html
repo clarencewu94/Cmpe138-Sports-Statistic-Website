@@ -58,55 +58,54 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>Course Name</th>        
-          <th>First Hole</th>
-          <th>Second Hole</th>
-          <th>Third Hole</th>
-          <th>Fourth Hole</th>
-          <th>Fifth Hole</th>
-          <th>Sixth Hole</th>
-          <th>Seventh Hole</th>
-          <th>Eighth Hole</th>
-          <th>Ninth Hole</th>
-          <th>Tenth Hole</th>
-          <th>Eleventh Hole</th>
-          <th>Twelfth Hole</th>
-          <th>Thirteenth Hole</th>
-          <th>Fourteenth Hole</th>
-          <th>Fifteenth Hole</th>
-          <th>Sixteenth Hole</th>
-          <th>Seventeenth Hole</th>
-          <th>Eighteenth Hole</th>
+          <th>Couse Name</th>
+          <th>First</th>        
+          <th>Second</th>
+          <th>Third</t>
+          <th>Forth</th>
+          <th>Fifth</th>
+          <th>Sixth</th>        
+          <th>Seventh</th>
+          <th>Eighth</t>
+          <th>Ninth</th>
+          <th>Tenth</th>
+          <th>Eleventh</th>        
+          <th>Twelfth</th>
+          <th>Thirteenth</t>
+          <th>Fourteenth</th>
+          <th>Fiftheen</th>
+          <th>Sixteenth</th>        
+          <th>Seventeenth</th>
+          <th>Eighteenth</t>
         </tr>
       </thead>
     </table>
   </div>
   <div class="tbl-content">
-    {% for key, value in basketball_dict.items() %}
+    {% for key, value in golf_dict.items() %}
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
         <tr>
           <td>{{key}}</td>
-          <td>{{value.get_course_name()}} </td>
-          <td>{{value.get_first()}}</td>
+          <td>{{value.get_course_name()}}</td>
+          <td>{{value.get_first()}} </td>
           <td>{{value.get_second()}}</td>
-          <td>{{value.get_third()}}</td>
+          <td>{{value.get_third()}}</t>
           <td>{{value.get_fourth()}}</td>
-          <td>{{value.get_fifth()}}</td>
+          <td>{{value.get_fifth()}} </td>
           <td>{{value.get_sixth()}}</td>
-          <td>{{value.get_seventh()}}</td>
+          <td>{{value.get_seventh()}}</t>
           <td>{{value.get_eighth()}}</td>
-          <td>{{value.get_ninth()}}</td>
+          <td>{{value.get_ninth()}} </td>
           <td>{{value.get_tenth()}}</td>
-          <td>{{value.get_eleventh()}}</td>
+          <td>{{value.get_eleventh()}}</t>
           <td>{{value.get_twelfth()}}</td>
-          <td>{{value.get_thirteenth()}}</td>
+          <td>{{value.get_thirteenth()}} </td>
           <td>{{value.get_fourteenth()}}</td>
-          <td>{{value.get_fifteenth()}}</td>
+          <td>{{value.get_fiftheenth()}}</t>
           <td>{{value.get_sixteenth()}}</td>
-          <td>{{value.get_seventeenth()}}</td>
+          <td>{{value.get_seventheeth()}} </td>
           <td>{{value.get_eighteenth()}}</td>
-
         </tr>
       </tbody>
     </table>

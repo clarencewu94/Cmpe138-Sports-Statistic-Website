@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Soccer history</title>
+  <title>FootballOffense history</title>
   
   <!-- Imports -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -58,30 +58,29 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>Shots</th>   
-          <th>Saves</th>        
-          <th>Offsides</th>
-          <th>Fouls</th>
-          <th>Assists</th>
-          <th>Yellow Cards</th>
-          <th>Red Cards</th>
+          <th>Completions</th>        
+          <th>Yards</th>
+          <th>Touchdown</th>
+          <th>Interception</th>
+          <th>Field Goal</th>
+          <th>Extra Points</th>
+
         </tr>
       </thead>
     </table>
   </div>
   <div class="tbl-content">
-    {% for key, value in basketball_dict.items() %}
+    {% for key, value in foffense_dict.items() %}
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
         <tr>
           <td>{{key}}</td>
-          <td>{{value.get_shots()}} </td>
-          <td>{{value.get_saves()}}</td>
-          <td>{{value.get_offsides()}}</td>
-          <td>{{value.get_fouls()}}</td>
-          <td>{{value.get_assists()}}</td>
-          <td>{{value.get_yellow_cards()}}</td>
-          <td>{{value.get_red_cards()}}</td>
+          <td>{{value.get_CMP()}} </td>
+          <td>{{value.get_YDS()}}</td>
+          <td>{{value.get_TD()}}</td>
+          <td>{{value.get_INTs()}}</td>
+          <td>{{value.get_FG()}}</td>
+          <td>{{value.get_XP()}}</td>
 
         </tr>
       </tbody>

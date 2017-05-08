@@ -58,24 +58,27 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>Aces</th>
-          <th>Serves</th>
-          <th>Net Faults</th>
-          <th>Double Faults</th>
+          <th>winners</th>
+          <th>double_faults</th>        
+          <th>serves</th>
+          <th>net_faults</th>
+          <th>aces</th>
         </tr>
       </thead>
     </table>
   </div>
+
   <div class="tbl-content">
-    {% for key, value in basketball_dict.items() %}
+    {% for key, value in tennis_dict.items() %}
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
         <tr>
           <td>{{key}}</td>
-          <td>{{value.get_aces()}} </td>
+          <td>{{value.get_winners()}}</td>
+          <td>{{value.get_double_faults()}} </td>
           <td>{{value.get_serves()}}</td>
           <td>{{value.get_net_faults()}}</td>
-          <td>{{value.get_double_faults()}}</td>
+          <td>{{value.get_aces()}}</td>
 
         </tr>
       </tbody>
