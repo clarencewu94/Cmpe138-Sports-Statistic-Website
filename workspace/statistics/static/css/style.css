@@ -30,6 +30,11 @@ neutral-color: #EFEFEF
     background:transparent;
 }
 
+table {
+    display: block;
+    overflow: scroll;
+}
+
 html {
   height: 100%;
   }
