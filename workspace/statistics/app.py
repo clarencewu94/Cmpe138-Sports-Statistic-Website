@@ -64,7 +64,7 @@ def basketball():
         basketball_db.commit()
         basketball_db.close()
         success = "Successfully added to database"
-        return render_template('basketball.html', success=success)
+        return render_template('ResultHub.html', success=success)
     return render_template('basketball.html')
        
 @app.route("/football")
@@ -301,6 +301,10 @@ def hockey():
     return render_template('hockey.html')
 
 
+@app.route("/resulthub")
+def resulthub():
+    return render_template("ResultHub.html")
+
 @app.route("/results/<int:game>", methods=['GET', 'POST'])
 def results(game):
 
@@ -313,7 +317,7 @@ def results(game):
     BLK = None
     TO = None
     PF = None
-    bball_dict = {}
+    basketball_dict = {}
 
     search_game_list = []
     if request.method == "GET":
@@ -329,7 +333,7 @@ def results(game):
             BLK = row[6]
             TO = row[7]
             PF = row[8]
-        basketball = bball(FG, TPT, FT, REB, AST, STL, BLK, TO, PF)
+        basketball = Basketball(FG, TPT, FT, REB, AST, STL, BLK, TO, PF)
         basketball_dict[game] = basketball #storing in Data Structure for printing purposes
         return render_template('results.html', game=game, basketball_dict=basketball_dict)
     return render_template("results.html")
