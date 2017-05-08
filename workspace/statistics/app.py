@@ -327,7 +327,7 @@ def results(game):
             BLK = row[6]
             TO = row[7]
             PF = row[8]
-        basketball = bball(FG, TPT, FT, REB, AST, STL, BLK, TO, PF)
+        basketball = Basketball(FG, TPT, FT, REB, AST, STL, BLK, TO, PF)
         basketball_dict[game] = basketball #storing in Data Structure for printing purposes
         return render_template('results.html', game=game, basketball_dict=basketball_dict)
     return render_template("results.html")    
