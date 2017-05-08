@@ -44,7 +44,9 @@ div {
 
 <center><h2>Enter your offensive football statistics here</h2>
 </center>
-
+                    <ret>
+                        <a href="/mainmenu">Home</a>
+                    </ret>
   <form id="contact" action="{{url_for('foffense')}}" method="POST">
      {% if success %}
    <div class="alert alert-success">
@@ -55,7 +57,7 @@ div {
 
 <div>
    <form action="/">
-    <label for="Completions">Completions (Completions-Attempted)</label>
+    <label for="Completions">Completions</label>
     <input type="text" id="CMP" name="Completions" placeholder="CMP">
 
     <label for="Yards">Yards</label>

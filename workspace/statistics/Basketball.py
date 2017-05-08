@@ -1,3 +1,4 @@
+
 class Basketball:
 
     def __init__(self, FG, TPT, FT, REB, AST, STL, BLK, TO, PF):
@@ -98,7 +99,11 @@ class Soccer:
         self.yellow_cards = yellow_cards
         self.red_cards = red_cards
 
+<<<<<<< HEAD
     def get_shows(self):
+=======
+    def get_shots(self):
+>>>>>>> be0c58f3c950875d46448f086af45c57856914c8
         return self.shots
     
     def get_saves(self):
@@ -144,7 +149,7 @@ class Tennis:
     
 
 class Golf:
-    def __init__(self, course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth):
+    def __init__(self, course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth):
 
         self.course_name = course_name
         self.first = first
@@ -156,15 +161,6 @@ class Golf:
         self.seventh = seventh
         self.eighth = eighth
         self.ninth = ninth
-        self.tenth = tenth
-        self.eleventh = eleventh
-        self.twelfth = twelfth
-        self.thirteenth = thirteenth
-        self.fourteenth = fourteenth
-        self.fifteenth = fifteenth
-        self.sixteenth = sixteenth
-        self.seventeenth = seventeenth
-        self.eighteenth = eighteenth
 
     def get_course_name(self):
         return self.course_name
@@ -243,4 +239,3 @@ class Hockey:
     def get_goals_stopped(self):
         return self.goals_stopped
     
-   

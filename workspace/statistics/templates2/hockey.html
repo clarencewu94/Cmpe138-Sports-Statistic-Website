@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang = "en">
+<title>Group Project</title>
+<link rel="stylesheet" type ="text/css" href="{{ url_for('static', filename = 'style.css')}}">
+
+<body style="background-color:antiquewhite;">
+
+<h1>Hockey Session</h1>
+
+
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: goldenrod;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #9EB9D4;
+}
+
+div {
+    border-radius: 5px;
+    background-color: seashell;
+    padding: 20px;
+}
+</style>
+<body>
+
+<center><h2>Enter your hockey statistics here</h2>
+</center>
+
+<form id="contact" action="{{url_for('hockey')}}" method="POST">
+     {% if success %}
+   <div class="alert alert-success">
+          <strong>{{success}}</strong> 
+    </div>
+    {%endif %}
+    <fieldset>
+<div>
+  <form action="/">
+    <label for="Goals">Goals (Made-Attempted)</label>
+    <input type="text" id="Goals" name="Goals" placeholder="Made-Attempted">
+
+    <label for="DBS">Defence Blocked Shots</label>
+    <input type="text" id="Defence_Blocked_Shots" name="Defence_Blocked_Shots" placeholder="DBS">
+
+    <label for="Off_Target">Off-Target Shots</label>
+    <input type="text" id="Off_Target_Shots" name="Off_Target_Shots" placeholder="Off-Target Shots">
+
+    <label for="Stopped">Goals Stopped (Saved-Failed)</label>
+    <input type="text" id="Goals_Stopped" name="Goals_Stopped" placeholder="Saved-Failed">
+
+    <input type="submit" value="Input">
+    </fieldset>
+  </form>
+</div>
+</div>
+
+</body>
+</body>
+</html>

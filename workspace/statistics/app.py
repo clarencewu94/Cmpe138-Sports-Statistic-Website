@@ -1,12 +1,13 @@
 from flask import Flask, render_template, flash, url_for, session, request, abort
 import sqlite3
 from Basketball import Basketball
-from Basketball import Foffense
-from Basketball import Fdefense
-from Basketball import Golf
-from Basketball import Hockey
 from Basketball import Soccer
 from Basketball import Tennis
+from Basketball import Golf
+from Basketball import Hockey
+from Basketball import Foffense
+from Basketball import Fdefense
+
 
 app = Flask(__name__)
 
@@ -68,15 +69,15 @@ def sessionhub():
 @app.route('/basketball', methods=['GET', 'POST'])
 def basketball():
     #Basketball
-    Field_Goal = ""
-    Three_Point = ""
-    Free_Throws = ""
-    Rebounds = ""
-    Assists = ""
-    Steals = ""
-    Blocks = ""
-    Turnovers =""
-    Personal_Fouls = ""
+    Field_Goal = None
+    Three_Point = None
+    Free_Throws = None
+    Rebounds = None
+    Assists = None
+    Steals = None
+    Blocks = None
+    Turnovers = None
+    Personal_Fouls = None
 
     cursor.execute('SELECT * FROM basketball')
     if request.method == "POST":
@@ -102,7 +103,7 @@ def basketball():
         basketball_db.commit()
         basketball_db.close()
         success = "Successfully added to database"
-        return render_template('basketball.html', success=success)
+        return render_template('mainmenu.html', success=success)
     return render_template('basketball.html')
        
 @app.route("/football")
@@ -111,12 +112,12 @@ def football():
 
 @app.route("/foffense", methods=['GET', 'POST'])
 def foffense():
-    Completions = ""
-    Yards = ""
-    Touchdown = ""
-    Interception = ""
-    Field_Goal = ""
-    Extra_Points = ""
+    Completions = None
+    Yards = None
+    Touchdown = None
+    Interception = None
+    Field_Goal = None
+    Extra_Points = None
 
     cursor.execute('SELECT * FROM foffense')
     if request.method == "POST":
@@ -139,15 +140,15 @@ def foffense():
         foffense_db.commit()
         foffense_db.close()
         success = "Successfully added to database"
-        return render_template('foffense.html', success=success)
+        return render_template('mainmenu.html', success=success)
     return render_template("foffense.html")
 
 @app.route("/fdefense", methods=['GET', 'POST'])
 def fdefense():
-    Tackles = ""
-    Fumbles = ""
-    Sacks = ""
-    Interception = ""
+    Tackles = None
+    Fumbles = None
+    Sacks = None
+    Interception = None
 
    
     cursor.execute('SELECT * FROM fdefense')
@@ -170,19 +171,19 @@ def fdefense():
         fdefense_db.close()
         
         success = "Successfully added to database"
-        return render_template('fdefense.html', success=success)
+        return render_template('mainmenu.html', success=success)
     return render_template("fdefense.html")
 
 @app.route("/soccer", methods=['GET', 'POST'])
 def soccer():
     #Soccer
-    Shots = ""
-    Saves = ""
-    Offside = ""
-    Fouls = ""
-    Assists = "" 
-    Yellow_Cards = ""
-    Red_Cards = ""
+    Shots = None
+    Saves = None
+    Offside = None
+    Fouls = None
+    Assists = None 
+    Yellow_Cards = None
+    Red_Cards = None
     
    
     cursor.execute('SELECT * FROM soccer')
@@ -207,17 +208,17 @@ def soccer():
         soccer_db.commit()
         soccer_db.close()
         success = "Successfully added to database"
-        return render_template('soccer.html', success=success)
+        return render_template('mainmenu.html', success=success)
     return render_template('soccer.html')
 
 @app.route("/tennis", methods=['GET', 'POST'])
 def tennis():
      #tennis
-    winners = ""
-    double_faults = ""
-    aces = ""
-    serves = ""
-    net_faults = "" 
+    winners = None
+    double_faults = None
+    aces = None
+    serves = None
+    net_faults = None 
     
   
     cursor.execute('SELECT * FROM tennis')
@@ -240,31 +241,23 @@ def tennis():
         tennis_db.commit()
         tennis_db.close()
         success = "Successfully added to database"
-        return render_template('tennis.html', success=success)
+        return render_template('mainmenu.html', success=success)
     return render_template('tennis.html')
 
 @app.route("/golf", methods=['GET', 'POST'])
 def golf():
     #golf
-    course_name = ""
-    first = ""
-    second = ""
-    third = ""
-    fourth = "" 
-    fifth = "" 
-    sixth = ""
-    seventh = ""
-    eighth = ""
-    ninth = ""
-    tenth = ""
-    eleventh = "" 
-    twelfth = "" 
-    thirteenth = ""
-    fourteenth = ""
-    fifteenth = ""
-    sixteenth = ""
-    seventeenth = ""
-    eighteenth = ""
+    course_name = None
+    first = None
+    second = None
+    third = None
+    fourth = None
+    fifth = None
+    sixth = None
+    seventh = None
+    eighth = None
+    ninth = None
+
     
    
     cursor.execute('SELECT * FROM golf')
@@ -284,35 +277,27 @@ def golf():
         seventh = request.form['seventh']
         eighth = request.form['eighth']
         ninth = request.form['ninth']
-        tenth = request.form['tenth']
-        eleventh = request.form['eleventh']
-        twelfth = request.form['twelfth']
-        thirteenth = request.form['thirteenth']
-        fourteenth = request.form['fourteenth']
-        fifteenth = request.form['fifteenth']
-        sixteenth = request.form['sixteenth']
-        seventeenth = request.form['seventeenth']
-        eighteenth = request.form['eighteenth']
+
       
         add_cursor.execute('''INSERT INTO golf(  
-            course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth)
-            Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''', (  
-            course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth))
+            course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth)
+            Values(?,?,?,?,?,?,?,?,?,?)''', (  
+            course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth))
 
         golf_db.commit()
         golf_db.close()
         success = "Successfully added to database"
-        return render_template('golf.html', success=success)
+        return render_template('mainmenu.html', success=success)
     return render_template('golf.html')
 
 
 @app.route("/hockey", methods=['GET', 'POST'])
 def hockey():
     #hockey
-    Goals = ""
-    Defence_Blocked_Shots  = ""
-    Off_Target_Shots = ""
-    Goals_Stopped = ""
+    Goals = None
+    Defence_Blocked_Shots  = None
+    Off_Target_Shots = None
+    Goals_Stopped = None
     
     cursor.execute('SELECT * FROM hockey')
     if request.method == "POST":
@@ -333,7 +318,7 @@ def hockey():
         hockey_db.commit()
         hockey_db.close()
         success = "Successfully added to database"
-        return render_template('hockey.html', success=success)
+        return render_template('mainmenu.html', success=success)
     return render_template('hockey.html')
 
 @app.route("/resulthub")
@@ -346,15 +331,15 @@ def FootballResults():
     
 @app.route("/bballresults/<string:sport>", methods=['GET', 'POST'])
 def bballresults(sport="basketball"):
-    FG = ""
-    TPT = ""
-    FT = ""
-    REB = ""
-    AST = ""
-    STL = ""
-    BLK = ""
-    TO = ""
-    PF = ""
+    FG = None
+    TPT = None
+    FT = None
+    REB = None
+    AST = None
+    STL = None
+    BLK = None
+    TO = None
+    PF = None
     game = 0
     basketball_dict = {}
     search_game_list = []
@@ -381,13 +366,13 @@ def bballresults(sport="basketball"):
 
 @app.route("/foffenseResults/<string:sport>", methods=['GET', 'POST'])
 def foffenseResults(sport="foffense"):
-    CMP = ""
-    YDS = ""
-    TD = ""
-    INTs = ""
-    FG = ""
-    XP = ""
-    game =0
+    CMP = None
+    YDS = None
+    TD = None
+    INTs = None
+    FG = None
+    XP = None
+    game = 0
     foffense_dict = {}
     search_game_list = []
     if request.method == "GET":
@@ -409,11 +394,11 @@ def foffenseResults(sport="foffense"):
     
 @app.route("/fdefenseResults/<string:sport>", methods=['GET', 'POST'])
 def fdefenseResults(sport = "fdefense"):
-    tackles = ""
-    fumbles = ""
-    sacks = ""
-    interception = ""
-    game =0
+    tackles = None
+    fumbles = None
+    sacks = None
+    interception = None
+    game = 0
     fdefense_dict = {}
     search_game_list = []
     if request.method == "GET":
@@ -433,6 +418,7 @@ def fdefenseResults(sport = "fdefense"):
     
 @app.route("/soccerResults/<string:sport>", methods=['GET', 'POST'])
 def soccerResults(sport="soccer"):
+<<<<<<< HEAD
     shots = ""
     saves = ""
     offsides = ""
@@ -440,6 +426,15 @@ def soccerResults(sport="soccer"):
     assists = ""
     yellow_cards = ""
     red_cards = ""
+=======
+    shots = None
+    saves = None
+    offsides = None
+    fouls = None
+    assists = None
+    yellow_cards = None
+    red_cards = None
+>>>>>>> be0c58f3c950875d46448f086af45c57856914c8
     game= 0;
     soccer_dict = {}
     search_game_list = []
@@ -464,11 +459,11 @@ def soccerResults(sport="soccer"):
 
 @app.route("/tennisResults/<string:sport>", methods=['GET', 'POST'])
 def tennisResults(sport="tennis"):
-    winners = ""
-    double_faults = ""
-    aces = ""
-    serves = ""
-    net_faults = "" 
+    winners = None
+    double_faults = None
+    aces = None
+    serves = None
+    net_faults = None
     game= 0;
     tennis_dict = {}
     search_game_list = []
@@ -490,10 +485,10 @@ def tennisResults(sport="tennis"):
     
 @app.route("/hockeyResults/<string:sport>", methods=['GET', 'POST'])
 def hockeyResults(sport="hockey"):
-    goals = ""
-    defence_blocked_shots  = ""
-    off_target_shots = ""
-    goals_stopped = ""
+    goals = None
+    defence_blocked_shots  = None
+    off_target_shots = None
+    goals_stopped = None
     game= 0;
     hockey_dict = {}
     search_game_list = []
@@ -513,25 +508,16 @@ def hockeyResults(sport="hockey"):
     
 @app.route("/golfResults/<string:sport>", methods=['GET', 'POST'])
 def golfResults(sport="golf"):
-    course_name = ""
-    first = ""
-    second = ""
-    third = ""
-    fourth = "" 
-    fifth = "" 
-    sixth = ""
-    seventh = ""
-    eighth = ""
-    ninth = ""
-    tenth = ""
-    eleventh = "" 
-    twelfth = "" 
-    thirteenth = ""
-    fourteenth = ""
-    fifteenth = ""
-    sixteenth = ""
-    seventeenth = ""
-    eighteenth = ""
+    course_name = None
+    first = None
+    second = None
+    third = None
+    fourth = None
+    fifth = None
+    sixth = None
+    seventh = None
+    eighth = None
+    ninth = None
     game= 0;
     golf_dict = {}
     search_game_list = []
@@ -551,19 +537,11 @@ def golfResults(sport="golf"):
             seventh = row[9]
             eighth = row[10]
             ninth = row[11]
-            tenth = row[12]
-            eleventh = row[13]
-            twelfth = row[14]
-            thirteenth = row[15]
-            fourteenth = row[16]
-            fifteenth = row[17]
-            sixteenth = row[18]
-            seventeenth = row[19]
-            eighteenth = row[20]
-            golf = Golf(course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth)
+            golf = Golf(course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth)
             golf_dict[game] = golf #storing in Data Structure for printing purposes
         return render_template('golfResults.html', game=game, golf_dict=golf_dict)
     return render_template("golfResults.html")
+
 
 
 if __name__ == "__main__":
