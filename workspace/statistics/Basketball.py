@@ -145,7 +145,7 @@ class Tennis:
     
 
 class Golf:
-    def __init__(self, course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth):
+    def __init__(self, course_name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth):
 
         self.course_name = course_name
         self.first = first
@@ -157,15 +157,6 @@ class Golf:
         self.seventh = seventh
         self.eighth = eighth
         self.ninth = ninth
-        self.tenth = tenth
-        self.eleventh = eleventh
-        self.twelfth = twelfth
-        self.thirteenth = thirteenth
-        self.fourteenth = fourteenth
-        self.fifteenth = fifteenth
-        self.sixteenth = sixteenth
-        self.seventeenth = seventeenth
-        self.eighteenth = eighteenth
 
     def get_course_name(self):
         return self.course_name
