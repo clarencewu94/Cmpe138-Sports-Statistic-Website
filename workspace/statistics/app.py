@@ -433,6 +433,10 @@ def fdefenseResults(sport = "fdefense"):
     
 @app.route("/soccerResults/<string:sport>", methods=['GET', 'POST'])
 def soccerResults(sport="soccer"):
+<<<<<<< HEAD
+=======
+
+>>>>>>> fed6603111148ef763119393decaf62e26ad2199
     shots = None
     saves = None
     offsides = None
