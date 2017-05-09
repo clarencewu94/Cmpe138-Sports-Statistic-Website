@@ -189,32 +189,6 @@ class Golf:
     def get_ninth(self):
         return self.ninth
 
-    def get_tenth(self):
-        return self.tenth
-
-    def get_eleventh(self):
-        return self.eleventh
-
-    def get_twelfth(self):
-        return self.twelfth
-
-    def get_thirteenth(self):
-        return self.thirteenth
-
-    def get_fourteenth(self):
-        return self.fourteenth
-
-    def get_fiftheenth(self):
-        return self.fifteenth
-
-    def get_sixteenth(self):
-        return self.sixteenth
-
-    def get_seventheeth(self):
-        return self.seventeenth
-
-    def get_eighteenth(self):
-        return self.eighteenth
 
 class Hockey:
     def __init__(self,goals, defence_blocked_shots, off_target_shots, goals_stopped):

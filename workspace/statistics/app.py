@@ -419,14 +419,14 @@ def fdefenseResults(sport = "fdefense"):
 @app.route("/soccerResults/<string:sport>", methods=['GET', 'POST'])
 def soccerResults(sport="soccer"):
 
-    shots = ""
-    saves = ""
-    offsides = ""
-    fouls = ""
-    assists = ""
-    yellow_cards = ""
-    red_cards = ""
 
+    shots = None
+    saves = None
+    offsides = None
+    fouls = None
+    assists = None
+    yellow_cards = None
+    red_cards = None
     game= 0;
     soccer_dict = {}
     search_game_list = []
@@ -491,8 +491,9 @@ def hockeyResults(sport="hockey"):
         for row in search_game_list:
             game = row[1]
             goals = row[2]
-            defense_blocked_shots = row[3]
+            defence_blocked_shots = row[3]
             off_target_shots = row[4]
+            goals_stopped = row[5]
             hockey = Hockey(goals, defence_blocked_shots, off_target_shots, goals_stopped)
             hockey_dict[game] = hockey #storing in Data Structure for printing purposes
         return render_template('hockeyResults.html', game=game, hockey_dict=hockey_dict)
