@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, flash, url_for, session, request, abort
+from flask import Flask, render_template, flash, url_for, session, request, abort
 import sqlite3
 from Basketball import Basketball
 from Basketball import Soccer
@@ -7,7 +7,6 @@ from Basketball import Golf
 from Basketball import Hockey
 from Basketball import Foffense
 from Basketball import Fdefense
-import os
 
 
 app = Flask(__name__)
@@ -19,38 +18,24 @@ app = Flask(__name__)
 db = sqlite3.connect('sports.db', check_same_thread=False)
 cursor = db.cursor()
 
-
 # @ is a decorator which is a way to wrap a function and modifying its behavior
-@app.route('/')
-def home():
-    if not session.get('logged_in'):
-        return render_template('login.html')
-    else:
-        return render_template('mainmenu.html')
-#def main():
-#        return render_template("frontpage.html")
-
-
-
-#@app.route("/frontpage", methods=['GET', 'POST'])
-@app.route('/login', methods=['POST'])
-def do_admin_login():
-    if request.form['password'] == 'password' and request.form['username'] == 'admin':
-        session['logged_in'] = True
-    else:
-        flash('wrong password!')
-    return home()
-  #   Username = None
-  #   Password = None
-  #   User_db = sqlite3.connect('sports.db',check_same_thread=False)
-  #   find_user = ("SELECT * FROM user WHERE userid = ? AND password = ?") 
-  #   fail_user = True
-  #   cursor.execute(find_user, [(userid),(password)])
-  #   results = cursor.fetchall()
-
-
-
-  #  return render_template("frontpage.html")
+@app.route("/")
+def main():
+        return render_template("frontpage.html")
+@app.route("/frontpage", methods=['GET', 'POST'])
+def frontpage():
+    Username = ""
+    Password = ""
+    User_db = sqlite3.connect('sports.db',check_same_thread=False)
+    find_user = ("SELECT * FROM user WHERE userid = ? AND password = ?") 
+    cursor.execute(find_user, [(userid),(password)])
+    results = cursor.fetchall()
+    
+    if results:
+        for i in results:
+            print ("Welcome")
+        return ("exit")
+    return render_template("frontpage.html")
 
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
@@ -433,17 +418,15 @@ def fdefenseResults(sport = "fdefense"):
     
 @app.route("/soccerResults/<string:sport>", methods=['GET', 'POST'])
 def soccerResults(sport="soccer"):
-<<<<<<< HEAD
-=======
 
->>>>>>> fed6603111148ef763119393decaf62e26ad2199
-    shots = None
-    saves = None
-    offsides = None
-    fouls = None
-    assists = None
-    yellow_cards = None
-    red_cards = None
+    shots = ""
+    saves = ""
+    offsides = ""
+    fouls = ""
+    assists = ""
+    yellow_cards = ""
+    red_cards = ""
+
     game= 0;
     soccer_dict = {}
     search_game_list = []
@@ -554,6 +537,4 @@ def golfResults(sport="golf"):
 
 
 if __name__ == "__main__":
-    app.secret_key = os.urandom(12)	
-    app.run(debug=True,host='127.0.0.1', port=5000)
-    #app.run(debug=True)
+	app.run(debug=True)
