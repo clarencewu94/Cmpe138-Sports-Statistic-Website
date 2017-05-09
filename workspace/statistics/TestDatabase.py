@@ -7,8 +7,8 @@ c.execute('''CREATE TABLE user
              (userid text not null, password text not null, id integer primary key autoincrement)''')
 
 
-c.execute('''INSERT INTO user (userid, password) VALUES (Sideshow_Bob, pancakes)''')
-c.execute('''INSERT INTO user (userid, password) VALUES (Jimbo_Jones, waffles)''')
+c.execute("INSERT INTO user Values ('Slideshowbob', 'pancakes', 1)")
+c.execute("INSERT INTO user VALUES ('Jimbo_Jones', 'waffles', 2)")
 c.execute('''INSERT INTO user (userid, password) VALUES (Kearny, french_toast)''')
 c.execute('''INSERT INTO user (userid, password) VALUES (Nelson_Muntz, bacon)''')
 c.execute('''INSERT INTO user (userid, password) VALUES (KRUSTYtheCLOWN, ScrambledEggs)''')
