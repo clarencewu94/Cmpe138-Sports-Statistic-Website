@@ -99,6 +99,7 @@ class Soccer:
         self.yellow_cards = yellow_cards
         self.red_cards = red_cards
 
+
     def get_shots(self):
         return self.shots
     
