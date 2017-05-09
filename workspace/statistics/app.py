@@ -418,7 +418,7 @@ def fdefenseResults(sport = "fdefense"):
     
 @app.route("/soccerResults/<string:sport>", methods=['GET', 'POST'])
 def soccerResults(sport="soccer"):
-<<<<<<< HEAD
+
     shots = ""
     saves = ""
     offsides = ""
@@ -426,15 +426,7 @@ def soccerResults(sport="soccer"):
     assists = ""
     yellow_cards = ""
     red_cards = ""
-=======
-    shots = None
-    saves = None
-    offsides = None
-    fouls = None
-    assists = None
-    yellow_cards = None
-    red_cards = None
->>>>>>> be0c58f3c950875d46448f086af45c57856914c8
+
     game= 0;
     soccer_dict = {}
     search_game_list = []
